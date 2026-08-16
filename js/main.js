@@ -150,11 +150,12 @@
   }, { threshold: .5 });
   document.querySelectorAll("[data-count]").forEach(function (el) { cio.observe(el); });
 
-  /* ============ 进度条 / 导航高亮 / 返回顶部 ============ */
+  /* ============ 导航高亮 / 深色区适配 / 返回顶部 ============ */
   var progressBar = document.getElementById("progressBar");
   var toTop = document.getElementById("toTop");
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".side-nav a"));
   var sections = navLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  var darkSections = Array.prototype.slice.call(document.querySelectorAll(".hero, .section-deep, .finale"));
 
   function onScroll() {
     var doc = document.documentElement;
@@ -170,9 +171,12 @@
     }
     navLinks.forEach(function (a, i) { a.classList.toggle("active", i === active); });
 
-    var heroH = document.getElementById("hero").offsetHeight;
-    document.body.classList.toggle("on-dark", window.scrollY < heroH - 60 ||
-      (sections[5] && window.scrollY + window.innerHeight * .5 > sections[5].offsetTop));
+    var mid = window.scrollY + window.innerHeight * .5, onDark = false;
+    for (var d = 0; d < darkSections.length; d++) {
+      var s = darkSections[d], top = s.offsetTop, bot = top + s.offsetHeight;
+      if (mid > top && mid < bot) { onDark = true; break; }
+    }
+    document.body.classList.toggle("on-dark", onDark);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -202,8 +206,10 @@
   var mdPlay = document.getElementById("mdPlay");
   var mdTitle = document.getElementById("mdTitle");
   var tracks = [
+    { src: "assets/audio/edenBGM026_A.mp3", title: "eden* 终章" },
     { src: "assets/audio/edenBGM021.mp3", title: "eden* 主旋律" },
-    { src: "assets/audio/edenBGM026_A.mp3", title: "eden* 终章" }
+    { src: "assets/audio/edenBGM020.mp3", title: "eden* 桃源" },
+    { src: "assets/audio/edenBGM024.mp3", title: "eden* 抉择" }
   ];
   var trackIdx = 0;
   function loadTrack(i) {
@@ -211,18 +217,38 @@
     bgm.src = tracks[trackIdx].src;
     mdTitle.textContent = tracks[trackIdx].title;
   }
+  function startPlay() {
+    bgm.play().then(function () {
+      mdPlay.classList.add("playing");
+      dock.classList.add("active");
+    }).catch(function () {
+      mdTitle.textContent = "点击页面任意处开始播放";
+    });
+  }
   mdPlay.addEventListener("click", function () {
     if (bgm.paused) {
-      bgm.play().then(function () {
-        mdPlay.classList.add("playing");
-        dock.classList.add("active");
-      }).catch(function () {
-        mdTitle.textContent = "播放失败，请再点一次";
-      });
+      startPlay();
     } else {
       bgm.pause();
       mdPlay.classList.remove("playing");
     }
+  });
+  // 自动播放：被浏览器拦截时，用户首次交互即开始
+  function autoStart() {
+    if (bgm.paused) startPlay();
+    ["pointerdown", "keydown", "touchstart", "wheel"].forEach(function (ev) {
+      window.removeEventListener(ev, autoStart);
+    });
+  }
+  window.addEventListener("load", function () {
+    startPlay();
+    setTimeout(function () {
+      if (bgm.paused) {
+        ["pointerdown", "keydown", "touchstart", "wheel"].forEach(function (ev) {
+          window.addEventListener(ev, autoStart, { passive: true });
+        });
+      }
+    }, 800);
   });
   bgm.addEventListener("ended", function () {
     mdPlay.classList.remove("playing");

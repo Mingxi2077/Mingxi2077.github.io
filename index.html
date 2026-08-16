@@ -21,12 +21,14 @@
 <!-- ========== 侧边导航 ========== -->
 <nav class="side-nav" aria-label="章节导航">
   <a href="#hero"     data-nav="hero"><i>序</i><span>序幕</span></a>
+  <a href="#op"       data-nav="op"><i>影</i><span>主題歌</span></a>
   <a href="#world"    data-nav="world"><i>启</i><span>世界观</span></a>
   <a href="#chars"    data-nav="chars"><i>人</i><span>人物志</span></a>
   <a href="#story"    data-nav="story"><i>物</i><span>物语</span></a>
   <a href="#gallery"  data-nav="gallery"><i>絵</i><span>绘卷</span></a>
   <a href="#quotes"   data-nav="quotes"><i>詞</i><span>言叶</span></a>
   <a href="#music"    data-nav="music"><i>楽</i><span>音乐</span></a>
+  <a href="#trivia"   data-nav="trivia"><i>縁</i><span>幕后</span></a>
   <a href="#essay"    data-nav="essay"><i>析</i><span>赏析</span></a>
   <a href="#finale"   data-nav="finale"><i>終</i><span>终章</span></a>
 </nav>
@@ -42,12 +44,13 @@
     <button class="md-btn" id="mdPrev" aria-label="上一首">‹</button>
     <button class="md-btn" id="mdNext" aria-label="下一首">›</button>
   </div>
-  <audio id="bgm" preload="metadata" src="assets/audio/edenBGM021.mp3"></audio>
+  <audio id="bgm" preload="auto" src="assets/audio/edenBGM026_A.mp3"></audio>
 </div>
 
 <!-- ========== 序幕 ========== -->
 <header id="hero" class="hero">
   <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="hero-nebula" aria-hidden="true"></div>
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="hero-inner">
     <p class="hero-eyebrow">minori &nbsp;·&nbsp; 2009 &nbsp;·&nbsp; 视觉小说</p>
@@ -56,11 +59,29 @@
     <p class="hero-sub-cn"><span class="ht-l" style="--d:1.1s">地球上，最后的恋爱物语</span></p>
     <p class="hero-tagline"><span class="ht-l" style="--d:1.35s">— Because you live, I live. —</span></p>
   </div>
-  <a class="scroll-cue" href="#world" aria-label="向下滚动">
+  <a class="scroll-cue" href="#op" aria-label="向下滚动">
     <span>走进伊甸</span>
     <i aria-hidden="true"></i>
   </a>
 </header>
+
+<!-- ========== 影 · 主題歌 ========== -->
+<section id="op" class="section section-deep op-section">
+  <canvas class="quote-stars" data-stars aria-hidden="true"></canvas>
+  <div class="container">
+    <header class="section-head section-head-dark reveal">
+      <span class="section-kanji">影</span>
+      <h2>序幕之后 · 主題歌</h2>
+      <p class="section-lead">「little explorer」 · 演唱 原田瞳 · 作词 酒井伸和 · 作编曲 天门</p>
+    </header>
+    <div class="op-player reveal">
+      <iframe src="https://player.bilibili.com/player.html?bvid=BV1WP4y1w73v&autoplay=0&danmaku=0"
+              scrolling="no" frameborder="0" allowfullscreen
+              title="eden* OP little explorer 4K 修复版"></iframe>
+    </div>
+    <p class="op-note reveal">少女踏上去往外界的旅程——这是属于诗音的心声。<a href="https://www.bilibili.com/video/BV1WP4y1w73v" target="_blank" rel="noopener">在 B 站打开 ⟶</a></p>
+  </div>
+</section>
 
 <main>
 
@@ -86,7 +107,7 @@
 
     <div class="world-grid">
       <figure class="world-cg reveal">
-        <img src="assets/cg/ev007a01.jpg" alt="山丘上的诗音目送鸟儿远去" loading="lazy">
+        <div class="wc-frame"><img src="assets/cg/ev007a01.jpg" alt="山丘上的诗音目送鸟儿远去" loading="lazy"></div>
         <figcaption>山丘上，她目送鸟儿飞向远方</figcaption>
       </figure>
       <div class="world-entries">
@@ -177,7 +198,7 @@
       </article>
 
       <article class="char-card reveal" style="--sd:.2s">
-        <figure><img src="assets/cg/ev071a01.jpg" alt="艾莉卡托付逃亡计划" loading="lazy"></figure>
+        <figure><img src="assets/cg/ev066a02_big.jpg" alt="突围而战的女仆艾莉卡" loading="lazy"></figure>
         <div class="char-body">
           <p class="char-name">艾莉卡 <em>Elica</em><i class="char-jp">エリカ</i></p>
           <p class="char-cv">CV 中岛裕美子</p>
@@ -192,6 +213,7 @@
           <p class="char-name">浅井·F·拉维尼娅 <em>Lavinia</em><i class="char-jp">ラヴィニア</i></p>
           <p class="char-cv">CV 中村绘里子</p>
           <p>护卫队准尉，亮的后辈。率真活泼的少女，对亮怀着笨拙的恋慕。在孤岛的枪口之前，她最终选择了温柔的抗命。</p>
+          <p class="char-quote">「刚才我不都说过了么？叫我拉维就好。」</p>
         </div>
       </article>
 
@@ -211,6 +233,7 @@
           <p class="char-name">塔野真夜 <em>Maya</em><i class="char-jp">塔野 真夜</i></p>
           <p class="char-cv">CV 后藤麻衣</p>
           <p>自由新闻记者，乘直升机寻访孤岛，与逃亡后的两人重逢，成为地球上最后恋情的见证者。</p>
+          <p class="char-quote">「即便写出报道，我也不清楚能否清晰地传达给世人。」</p>
         </div>
       </article>
 
@@ -440,8 +463,8 @@
 
       <article class="music-card music-card-wide reveal">
         <p class="music-no">站内聆听</p>
-        <h3>游戏原声 · 选段</h3>
-        <p>本站已内嵌两首提取自游戏原声的乐曲，点击左下角的 <strong>♪</strong> 即可聆听：<strong>《主旋律》</strong>（edenBGM021）——贯穿全作、在最初与最后反复响起的主题曲；<strong>《终章》</strong>（edenBGM026）——结局组曲，诗音长眠时的音乐。</p>
+        <h3>游戏原声 · 四曲</h3>
+        <p>点击左下角的 <strong>♪</strong> 即可聆听（进入页面后将自动开始播放，若被浏览器拦截，随意点一下页面即可）。<strong>《终章》</strong>（edenBGM026）——结局组曲，诗音长眠时的音乐；<strong>《主旋律》</strong>（edenBGM021）——贯穿全作、在最初与最后反复响起；<strong>《桃源》</strong>（edenBGM020）——隐居日常的旋律；<strong>《抉择》</strong>（edenBGM024）——「你……还在这里」拥抱场景的配乐。</p>
         <div class="track-table" aria-label="原声集曲目选">
           <p class="trk"><i>01</i><span>little explorer <small>BGM ver. · 小小的探索者</small></span></p>
           <p class="trk"><i>02</i><span>Rule <small>律则</small></span></p>
@@ -456,14 +479,60 @@
   </div>
 </section>
 
+<!-- ========== 縁 · 幕后 ========== -->
+<section id="trivia" class="section section-light">
+  <span class="wm" aria-hidden="true">縁</span>
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-kanji">縁</span>
+      <h2>幕后</h2>
+      <p class="section-lead">关于这部作品，一些值得知道的缘分与逸闻。</p>
+    </header>
+
+    <div class="trivia-grid">
+      <article class="trivia-item reveal">
+        <p class="trivia-no">壱</p>
+        <h3>新海诚与天门：Falcom 的老同事</h3>
+        <p>为本作配乐的天门，与新海诚曾是 Falcom 的同事。新海诚 2002 年离职制作《星之声》后，天门长期为他的动画配乐；而在 minori 的这部 eden* 里，新海诚的名字出现在 Staff 表的「特别感谢」中——缘分仍在延续。</p>
+      </article>
+      <article class="trivia-item reveal" style="--sd:.1s">
+        <p class="trivia-no">弐</p>
+        <h3>ef 班底的再集结</h3>
+        <p>监督御影＋剧本镜游的组合、人设ちこたむ、音乐天门——eden* 的核心阵容基本沿用了《ef - a fairy tale of the two.》的班底，也继承了 minori 标志性的电影化演出：纵长的滚动 CG、文字与画面交叠的蒙太奇。</p>
+      </article>
+      <article class="trivia-item reveal" style="--sd:.2s">
+        <p class="trivia-no">参</p>
+        <h3>「PLUS+MOSAIC」是个自嘲的玩笑</h3>
+        <p>日语里成人内容的打码就叫「马赛克（モザイク）」。「PLUS+MOSAIC」＝「加上马赛克的版本」——这个一本正经的名字，是 minori 式的冷幽默。它与全年龄版同日发售，主线完全相同。</p>
+      </article>
+      <article class="trivia-item reveal">
+        <p class="trivia-no">肆</p>
+        <h3>一部少见的全年龄原作</h3>
+        <p>2009 年的 eden* 初版是全年龄作品——对当时的美少女游戏业界而言相当特立独行。PM 版是在玩家呼声下追加的「数据盘」。2023 年，Steam 上架了官方中文版，这段物语终于以中文正式面世。</p>
+      </article>
+      <article class="trivia-item reveal" style="--sd:.1s">
+        <p class="trivia-no">伍</p>
+        <h3>十四年的漂流</h3>
+        <p>从 2009 年的日文原版，到 2015 年 MangaGamer 英文版、2022 年 Steam、2023 年官方中文——这部不足十小时的短篇物语，用了十四年漂洋过海。而它的故事，恰好也关于一场跨越世代的漫长旅程。</p>
+      </article>
+      <article class="trivia-item reveal" style="--sd:.2s">
+        <p class="trivia-no">陸</p>
+        <h3>纸上的伊甸</h3>
+        <p>eden* 亦有漫画版：守姬武士作画，2009 至 2010 年于《Comic REX》连载，单行本全一册。另一个世界的诗音，在纸上又活过一次。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ========== 析 · 赏析 ========== -->
 <section id="essay" class="section section-paper">
   <span class="wm wm-left" aria-hidden="true">析</span>
   <div class="container">
     <header class="section-head reveal">
       <span class="section-kanji">析</span>
-      <h2>八个词，读完 eden*</h2>
-      <p class="section-lead">一部关于末日与救赎的作品，可以概括为这八个词。</p>
+      <h2>献上礼赞</h2>
+      <p class="section-sub">为这乐园的浪漫</p>
+      <p class="section-lead">八个词，八种目光，读完地球上最后的恋爱物语。</p>
     </header>
 
     <div class="essay-grid">
