@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eden* ｜ 地球上最后的恋爱物语 —— 作品赏析</title>
+<meta name="description" content="minori《eden* They Were Only Two, On The Planet》非商业同人赏析站：世界观、人物、物语、CG 绘卷、台词与音乐。Because you live, I live.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2310141f'/%3E%3Cpath d='M32 8l3.5 18L54 32l-18.5 6L32 56l-3.5-18L10 32l18.5-6z' fill='%23c8b078'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ========== 阅读进度 ========== -->
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<!-- ========== 侧边导航 ========== -->
+<nav class="side-nav" aria-label="章节导航">
+  <a href="#hero"     data-nav="hero"><i>序</i><span>序幕</span></a>
+  <a href="#world"    data-nav="world"><i>启</i><span>世界观</span></a>
+  <a href="#chars"    data-nav="chars"><i>人</i><span>人物志</span></a>
+  <a href="#story"    data-nav="story"><i>物</i><span>物语</span></a>
+  <a href="#gallery"  data-nav="gallery"><i>絵</i><span>绘卷</span></a>
+  <a href="#quotes"   data-nav="quotes"><i>詞</i><span>言叶</span></a>
+  <a href="#music"    data-nav="music"><i>楽</i><span>音乐</span></a>
+  <a href="#essay"    data-nav="essay"><i>析</i><span>赏析</span></a>
+  <a href="#finale"   data-nav="finale"><i>終</i><span>终章</span></a>
+</nav>
+
+<!-- ========== 返回顶部 ========== -->
+<button class="to-top" id="toTop" aria-label="回到顶部">✦</button>
+
+<!-- ========== 音乐坞 ========== -->
+<div class="music-dock" id="musicDock">
+  <button class="md-disc" id="mdPlay" aria-label="播放或暂停音乐">♪</button>
+  <div class="md-panel">
+    <p class="md-title" id="mdTitle">eden* 主旋律</p>
+    <button class="md-btn" id="mdPrev" aria-label="上一首">‹</button>
+    <button class="md-btn" id="mdNext" aria-label="下一首">›</button>
+  </div>
+  <audio id="bgm" preload="none" src="assets/audio/edenBGM021.ogg"></audio>
+</div>
+
+<!-- ========== 序幕 ========== -->
+<header id="hero" class="hero">
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">minori &nbsp;·&nbsp; 2009 &nbsp;·&nbsp; 视觉小说</p>
+    <h1 class="hero-title" aria-label="eden*"><span class="ht-l" style="--d:.05s">e</span><span class="ht-l" style="--d:.2s">d</span><span class="ht-l" style="--d:.35s">e</span><span class="ht-l" style="--d:.5s">n</span><span class="star">*</span></h1>
+    <p class="hero-sub-en"><span class="ht-l" style="--d:.9s">They Were Only Two, On The Planet.</span></p>
+    <p class="hero-sub-cn"><span class="ht-l" style="--d:1.1s">地球上，最后的恋爱物语</span></p>
+    <p class="hero-tagline"><span class="ht-l" style="--d:1.35s">— Because you live, I live. —</span></p>
+  </div>
+  <a class="scroll-cue" href="#world" aria-label="向下滚动">
+    <span>走进伊甸</span>
+    <i aria-hidden="true"></i>
+  </a>
+</header>
+
+<main>
+
+<!-- ========== 启 · 世界观 ========== -->
+<section id="world" class="section section-light">
+  <span class="wm" aria-hidden="true">啓</span>
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-kanji">启</span>
+      <h2>在世界终结之前</h2>
+      <p class="section-lead">「耶和华神在东方的伊甸立了一个园子，把所造的人安置在那里。有河从伊甸流出来，滋润那园子。」<br>—— 《创世记》</p>
+    </header>
+
+    <!-- 百年时间轴 -->
+    <div class="timeline reveal" aria-label="世界观时间轴">
+      <div class="tl-track"><i></i></div>
+      <div class="tl-node" style="--sd:.1s"><b>百年前</b><span>「灭世之星」降临火星轨道</span></div>
+      <div class="tl-node" style="--sd:.3s"><b>统一政府</b><span>人类放下国界，携手求生</span></div>
+      <div class="tl-node" style="--sd:.5s"><b>菲利克斯</b><span>人造天才们为方舟而生</span></div>
+      <div class="tl-node" style="--sd:.7s"><b>第 99 年</b><span>脱出计划完成·人类启程</span></div>
+      <div class="tl-node" style="--sd:.9s"><b>现在</b><span>孤岛·第 703 研究所</span></div>
+    </div>
+
+    <div class="world-grid">
+      <figure class="world-cg reveal">
+        <img src="assets/cg/ev007a01.jpg" alt="山丘上的诗音目送鸟儿远去" loading="lazy">
+        <figcaption>山丘上，她目送鸟儿飞向远方</figcaption>
+      </figure>
+      <div class="world-entries">
+        <article class="world-entry reveal">
+          <h3><span>壹</span>灭世之星</h3>
+          <p>一个世纪前，火星轨道附近出现了被称作「灭世之星」的高密度能量体。受其影响，地球气候紊乱、大地开裂、战争与恐怖四起。天文学给出冷静而残酷的判决：这颗星球，只剩下不到一百年。</p>
+        </article>
+        <article class="world-entry reveal">
+          <h3><span>贰</span>菲利克斯</h3>
+          <p>Felix，拉丁语意为「幸运」。为在百年内完成不可能的工程，人类以基因技术创造出一类新生命：拥有超凡智能与悠长寿命的「人造天才」。他们不是公民，而是「国家财产」——被制造，被使用，被回收。</p>
+        </article>
+        <article class="world-entry reveal">
+          <h3><span>叁</span>地球脱出计划</h3>
+          <p>人类历史上最宏大的工程：建造驶出太阳系的巨型宇宙船，把文明的火种带往新的星海。第九十九年，计划终于完成，人类陆续离开这颗垂死的星球——「从数千年数万年前开始，人类便不断地重复着旅行。这次不过是规模有些不一样罢了。」</p>
+        </article>
+        <article class="world-entry reveal">
+          <h3><span>肆</span>第 703 研究所</h3>
+          <p>计划完成后，作为中枢的菲利克斯——诗音，失去了利用价值。她被「保管」在孤岛的研究设施里，等待作为实验样本度过余生。这一年，一名年轻的士兵来到孤岛。他的任务只有一行字：<em>守护她，监视她。</em></p>
+        </article>
+      </div>
+    </div>
+
+    <!-- 数字带 -->
+    <div class="stats-band reveal" aria-label="本作数字印象">
+      <div class="stat"><b data-count="100">0</b><span>年 · 地球余命</span></div>
+      <div class="stat"><b data-count="99">0</b><span>年 · 诗音走过的岁月</span></div>
+      <div class="stat"><b data-count="2">0</b><span>人 · 留在地球之上</span></div>
+      <div class="stat"><b data-count="1">0</b><span>颗 · 东天的红星</span></div>
+    </div>
+
+    <aside class="about-strip reveal">
+      <div class="about-cols">
+        <dl>
+          <div><dt>原题</dt><dd>eden* — They Were Only Two, On The Planet.</dd></div>
+          <div><dt>制作</dt><dd>minori（2009.09.18）</dd></div>
+          <div><dt>监督</dt><dd>御影</dd></div>
+          <div><dt>剧本</dt><dd>镜游</dd></div>
+          <div><dt>人物设定</dt><dd>ちこたむ ／ KIMちー</dd></div>
+          <div><dt>音乐</dt><dd>天门</dd></div>
+          <div><dt>企画</dt><dd>酒井伸和</dd></div>
+          <div><dt>特别感谢</dt><dd>新海诚</dd></div>
+        </dl>
+        <div class="ver-list">
+          <h4>版本沿革</h4>
+          <ul>
+            <li><b>2009.09</b><span>eden*（全年龄）与 PLUS+MOSAIC 同日发售</span></li>
+            <li><b>2015.01</b><span>MangaGamer 英文版登陆 Steam / GOG</span></li>
+            <li><b>2018.10</b><span>PLUS+MOSAIC 英文补丁</span></li>
+            <li><b>2022.10</b><span>Steam 正式上架</span></li>
+            <li><b>2023.05</b><span>Steam 官方中文版 + PM DLC</span></li>
+          </ul>
+          <p class="about-note">kotaku 评曰：「这是关于世界的终结、与拯救了人类的她的故事。」</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ========== 人 · 人物志 ========== -->
+<section id="chars" class="section section-paper">
+  <span class="wm wm-left" aria-hidden="true">人</span>
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-kanji">人</span>
+      <h2>人物志</h2>
+      <p class="section-lead">在末日的舞台上，每个人都在寻找自己灵魂的归处。</p>
+    </header>
+
+    <div class="char-grid">
+      <article class="char-card char-featured reveal">
+        <figure><img src="assets/cg/ev007b02.jpg" alt="绿野中微笑的诗音" loading="lazy"></figure>
+        <div class="char-body">
+          <p class="char-name">诗音 <em>Sion</em><i class="char-jp">シオン</i></p>
+          <p class="char-cv">CV 志村由美</p>
+          <p>白发的菲利克斯少女，地球脱出计划的中枢——「拯救了人类的智囊」。她的身体已近百岁，心却纯净如初生。为人类奉献了一切之后，她的愿望小得可怜：<strong>看看外面的世界。</strong></p>
+          <p class="char-quote">「在安静的，逐渐走向毁灭的世界里……我经历着第一次，同时也是最后一次的恋爱——」</p>
+        </div>
+      </article>
+
+      <article class="char-card reveal" style="--sd:.1s">
+        <div class="char-body">
+          <p class="char-name">榛名亮 <em>Ryou</em><i class="char-jp">榛名 亮</i></p>
+          <p class="char-cv">CV 间岛淳司</p>
+          <p>前特殊部队 GAT 准尉，孤儿。幼年时曾与逃亡的菲利克斯·枣相依为命；枣被带回后，他成了只为命令活着的空壳士兵。直到被派往孤岛——看守一位少女。</p>
+          <p class="char-quote">「过去的我只是漫无目的地活着，不断犯下过错，如行尸走肉一般。让我感到自己真正活着的——是与你度过的时光。」</p>
+        </div>
+      </article>
+
+      <article class="char-card reveal" style="--sd:.2s">
+        <figure><img src="assets/cg/ev071a01.jpg" alt="艾莉卡托付逃亡计划" loading="lazy"></figure>
+        <div class="char-body">
+          <p class="char-name">艾莉卡 <em>Elica</em><i class="char-jp">エリカ</i></p>
+          <p class="char-cv">CV 中岛裕美子</p>
+          <p>诗音的「姐姐」，同为菲利克斯的女仆。年幼的诗音曾被她从绝望中救出。油尽灯枯之际，她为诗音与亮，点燃了逃亡的火把。</p>
+          <p class="char-quote">「凡是活着的人都有获得幸福的权利，我对此深信不疑。」</p>
+        </div>
+      </article>
+
+      <article class="char-card reveal" style="--sd:.1s">
+        <figure><img src="assets/cg/ev015a01.jpg" alt="拉维尼亚" loading="lazy"></figure>
+        <div class="char-body">
+          <p class="char-name">浅井·F·拉维尼娅 <em>Lavinia</em><i class="char-jp">ラヴィニア</i></p>
+          <p class="char-cv">CV 中村绘里子</p>
+          <p>护卫队准尉，亮的后辈。率真活泼的少女，对亮怀着笨拙的恋慕。在孤岛的枪口之前，她最终选择了温柔的抗命。</p>
+        </div>
+      </article>
+
+      <article class="char-card reveal" style="--sd:.2s">
+        <div class="char-body">
+          <p class="char-name">稻叶直人 <em>Inaba</em><i class="char-jp">稲葉 直人</i></p>
+          <p class="char-cv">CV 远近孝一</p>
+          <p>护卫队队长，少佐。当年亲手带回逃亡的枣，是他半生的心结。他以自己的方式守护着亮——纵容那场「劫走」，并为之付出了一切。</p>
+          <p class="char-quote">「首先要清楚自己的无力。了解世界。这是一切的开始。也包括长大成人这件事。」</p>
+        </div>
+      </article>
+
+      <article class="char-card reveal" style="--sd:.3s">
+        <figure><img src="assets/cg/ev125a01.jpg" alt="真夜的泪水" loading="lazy"></figure>
+        <div class="char-body">
+          <p class="char-name">塔野真夜 <em>Maya</em><i class="char-jp">塔野 真夜</i></p>
+          <p class="char-cv">CV 后藤麻衣</p>
+          <p>自由新闻记者，乘直升机寻访孤岛，与逃亡后的两人重逢，成为地球上最后恋情的见证者。</p>
+        </div>
+      </article>
+
+      <article class="char-card char-card-wide reveal">
+        <div class="char-body">
+          <p class="char-name">枣 <em>Natsume</em><i class="char-jp">ナツメ</i></p>
+          <p class="char-cv">CV 冈田纯子</p>
+          <p>从研究所逃亡的菲利克斯，曾与年少的亮以「姐弟」相称，短暂地照亮过彼此。她被带回的那一天，成了亮与稻叶各自心中无法愈合的裂痕——也是这一切故事开始之前的前奏。</p>
+          <p class="char-quote">「因为有未来，人们才明白活着的重要性。是她，让我们想起了如此理所当然的事情。」</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 物 · 物语 ========== -->
+<section id="story" class="section section-light">
+  <span class="wm" aria-hidden="true">物</span>
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-kanji">物</span>
+      <h2>物语</h2>
+      <p class="section-lead">地球最后的数月间，一段悄然开始的恋情。<br>台词均摘自游戏官方中文版原文。</p>
+    </header>
+
+    <div class="spoiler-gate" id="spoilerGate">
+      <div class="spoiler-gate-inner">
+        <p class="spoiler-mark">✦</p>
+        <p>以下内容包含<strong>完整剧透</strong><br>若你尚未游玩本作，建议先闭上眼睛</p>
+        <button type="button" id="spoilerOpen">我已做好准备 —— 继续阅读</button>
+      </div>
+    </div>
+
+    <div class="story" id="storyBody">
+      <article class="chapter reveal">
+        <p class="chapter-no"><i>壱</i>第一章</p>
+        <h3>孤岛 · 相遇</h3>
+        <p>少女在纯白的房间里醒来，士兵在门外站岗。任务是保护她、监视她。诗音对窗外的一切好奇——海的气味、雨的声音、鸟的去向；亮则把「外面」折叠成只言片语，讲给她听。第一次外出，她忘我地追逐一只飞鸟，跑上山丘，久久望着它消失的天际。看守与被看守的位置悄悄松动，两颗孤独的心，开始靠近。</p>
+        <figure class="chapter-fig"><img src="assets/cg/ev047a01_big.jpg" alt="设施中交谈的士兵与诗音" loading="lazy"><figcaption>士兵与圣女——最初的距离</figcaption></figure>
+      </article>
+
+      <article class="chapter reveal">
+        <p class="chapter-no"><i>弐</i>第二章</p>
+        <h3>逃离 · 背叛之温柔</h3>
+        <p>艾莉卡的生命之火将熄，她最后的愿望，是把诗音从「保管」中解放出来。「若是有亮帮忙的话，成功的概率就大多了。」在她的谋划下，亮带着诗音冲出研究所——女仆的裙裾扫倒围堵的枪口，拉维在枪口前移开了视线，稻叶少佐在报告里写下了谎言。制度出现裂缝，而裂缝里漏下的，是人性的光。</p>
+        <figure class="chapter-fig"><img src="assets/cg/ev066a02_big.jpg" alt="艾莉卡的突围之战" loading="lazy"><figcaption>姐妹的托付，以生命为火把</figcaption></figure>
+      </article>
+
+      <article class="chapter reveal">
+        <p class="chapter-no"><i>参</i>第三章</p>
+        <h3>桃源 · 日常</h3>
+        <p>枣的旧居，成了两人隐居的家。田地里种下作物，湖边垂钓，傍晚并肩看星。诗音第一次触到「生活」——不是天才的使命，而是作为一个人，活在世上。「若是能在这里跟亮一起迎来最后一刻……对我而言便已足够。」她说这话时，将脑袋轻轻靠在了亮的肩上。</p>
+        <figure class="chapter-fig"><img src="assets/cg/ev098a01.jpg" alt="湖水与日常" loading="lazy"><figcaption>两人份的日常，千金不换</figcaption></figure>
+      </article>
+
+      <article class="chapter reveal">
+        <p class="chapter-no"><i>肆</i>第四章</p>
+        <h3>抉择 · 拥抱</h3>
+        <p>剩下的时间不多了。诗音希望亮随真夜离开地球、活下去——</p>
+        <div class="vn-box" role="figure" aria-label="游戏原文对话">
+          <p class="vn-line"><span class="vn-name">诗音</span><span class="vn-text">留在这里，跟自杀没什么两样。你真的明白吗？</span></p>
+          <p class="vn-line"><span class="vn-name vn-ryo">亮</span><span class="vn-text">像「世界毁灭」这样模糊不清、莫名其妙的事情，根本无关紧要。</span></p>
+          <p class="vn-line"><span class="vn-name">诗音</span><span class="vn-text">……亮，你是认真的吗？</span></p>
+          <p class="vn-line"><span class="vn-name vn-ryo">亮</span><span class="vn-text">我不愿再失去任何东西了。</span></p>
+          <p class="vn-line"><span class="vn-name">诗音</span><span class="vn-text">即便失去我，也没什么吧。要是留在这里，毫无疑问你将失去所有。</span></p>
+          <p class="vn-line"><span class="vn-name vn-ryo">亮</span><span class="vn-text">不对。</span></p>
+          <p class="vn-line vn-line-em"><span class="vn-name vn-ryo">亮</span><span class="vn-text">你……还在这里。</span></p>
+        </div>
+        <p>我伸出手，将她娇小的身体拥入怀中。柔软、温暖的感触径直传来。那股温暖让我感到——她的确活着。</p>
+        <figure class="chapter-fig"><img src="assets/cg/ev131a01.jpg" alt="亮的拥抱" loading="lazy"><figcaption>「就像你不愿让我死掉一样，我也不想失去和你在一起的时间。」</figcaption></figure>
+      </article>
+
+      <article class="chapter reveal">
+        <p class="chapter-no"><i>終</i>终章</p>
+        <h3>晚安 · 诗音</h3>
+        <p>最后一艘宇宙船升空，地球上只余两人，与暮色中的伊甸。最后的清晨，她靠在亮的肩头，泪水与道歉一同流下——</p>
+        <div class="vn-box" role="figure" aria-label="游戏原文对话">
+          <p class="vn-line"><span class="vn-name">诗音</span><span class="vn-text">对不起，我连煎鸡蛋都做不出来……</span></p>
+          <p class="vn-line"><span class="vn-name">诗音</span><span class="vn-text">对不起，让你陪着我任性……对不起……没法陪你到最后……</span></p>
+          <p class="vn-line"><span class="vn-name vn-ryo">亮</span><span class="vn-text">不要紧。没关系的，诗音……我就在这里，永远都在诗音的身边。</span></p>
+          <p class="vn-line"><span class="vn-name">诗音</span><span class="vn-text">嗯……我也……我的心，绝不会离开亮。永远，都在亮的身边……</span></p>
+          <p class="vn-line vn-line-em"><span class="vn-name">诗音</span><span class="vn-text">如果，我还能……醒来……就……一起……</span></p>
+        </div>
+        <p>她的话语戛然而止。她将脑袋靠在他的肩头，合上了双眼，嘴角带着淡淡的笑容。乐园里独属于两人的时光——将永无止境地延续下去。而他能说的，唯有最后一句话——</p>
+        <figure class="chapter-fig"><img src="assets/cg/ev224a01.jpg" alt="永眠" loading="lazy"><figcaption>「晚安，诗音――」</figcaption></figure>
+        <div class="chapter-epilogue">
+          <p class="chapter-no"><i>後</i>后日谈</p>
+          <p>他在她最喜欢的山丘上，用双手挖好墓穴，将艾莉卡的遗发放进她交叠的双手——「如此一来，诗音跟艾丽卡这对姐妹就能永远陪着彼此了。」诗音的坟墓不需要墓碑，她所铸就的伟业，将被镌刻在人类的历史当中。「诗音，我会试着继续活下去。」「明天，我会带花过来。」如今已不必配合诗音的步调，但他仍然走得很慢。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 絵 · 绘卷 ========== -->
+<section id="gallery" class="section section-paper">
+  <span class="wm wm-left" aria-hidden="true">絵</span>
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-kanji">絵</span>
+      <h2>绘卷</h2>
+      <p class="section-lead">ちこたむ笔下的末日与乐园，全部取自游戏原版 CG。点击图片放大欣赏。</p>
+    </header>
+    <div class="gallery" id="galleryGrid">
+      <figure class="g-item reveal"><img src="assets/cg/ev007b02.jpg" data-cap="绿野 · 一望无际的绿景中莞尔一笑" alt="绿野中微笑的诗音" loading="lazy"><figcaption>绿野</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev006.jpg" data-cap="逐鸟 · 第一次外出，她追逐着鸟儿" alt="诗音追逐飞鸟" loading="lazy"><figcaption>逐鸟</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev007a01.jpg" data-cap="山丘 · 她目送鸟儿飞向天空的尽头" alt="山丘上的诗音" loading="lazy"><figcaption>山丘</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev047a01_big.jpg" data-cap="对坐 · 士兵与圣女的距离" alt="士兵与诗音对坐交谈" loading="lazy"><figcaption>对坐</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev071a01.jpg" data-cap="托付 · 艾莉卡最后的愿望" alt="艾莉卡的托付" loading="lazy"><figcaption>托付</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev066a02_big.jpg" data-cap="突围 · 女仆的裙裾扫过枪口" alt="艾莉卡突围之战" loading="lazy"><figcaption>突围</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev215a01.jpg" data-cap="夜战 · 为了妹妹的未来" alt="艾莉卡对战士兵" loading="lazy"><figcaption>夜战</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev003_big.jpg" data-cap="启程 · 通往无悔未来的选择" alt="启程" loading="lazy"><figcaption>启程</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev098a01.jpg" data-cap="湖 · 桃源的日常" alt="湖水" loading="lazy"><figcaption>湖</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev142a01.jpg" data-cap="湖畔 · 她十分中意的湖泊" alt="湖畔" loading="lazy"><figcaption>湖畔</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev142b02.jpg" data-cap="旅途 · 这颗星球漫长旅途的终点，将是毁灭" alt="诗音谈人类的旅途" loading="lazy"><figcaption>旅途</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev125a01.jpg" data-cap="泪水 · 见证者的懊悔" alt="真夜的泪水" loading="lazy"><figcaption>泪水</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev131a01.jpg" data-cap="拥抱 · 「你……还在这里。」" alt="亮的拥抱" loading="lazy"><figcaption>拥抱</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev131a02.jpg" data-cap="相拥 · 再也不会让你感到悲伤了" alt="相拥" loading="lazy"><figcaption>相拥</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev238a01_big.jpg" data-cap="清晨 · 最后的醒来" alt="最后的清晨" loading="lazy"><figcaption>清晨</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev248a01.jpg" data-cap="暮色 · 「这是爱的力量？」" alt="暮色中的对话" loading="lazy"><figcaption>暮色</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev248b01.jpg" data-cap="漫步 · 最后的散步" alt="最后的散步" loading="lazy"><figcaption>漫步</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev224a01.jpg" data-cap="永眠 · 「晚安，诗音――」" alt="永眠" loading="lazy"><figcaption>永眠</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev002a01.jpg" data-cap="约定 · 「因为……跟你约好了……」" alt="约定" loading="lazy"><figcaption>约定</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev162a01.jpg" data-cap="明日之花 · 「明天，我会带花过来。」" alt="明日之花" loading="lazy"><figcaption>明日之花</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev015a01.jpg" data-cap="后辈 · 浅井·F·拉维尼娅" alt="拉维尼娅" loading="lazy"><figcaption>后辈</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev016a01_mugai.jpg" data-cap="调令 · 前往第 703 研究所" alt="调令" loading="lazy"><figcaption>调令</figcaption></figure>
+      <figure class="g-item reveal"><img src="assets/cg/ev035a01.jpg" data-cap="守护 · 绝不能将她卷进来" alt="守护" loading="lazy"><figcaption>守护</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 詞 · 言叶 ========== -->
+<section id="quotes" class="section section-deep">
+  <canvas class="quote-stars" data-stars aria-hidden="true"></canvas>
+  <div class="container">
+    <header class="section-head section-head-dark reveal">
+      <span class="section-kanji">詞</span>
+      <h2>言叶</h2>
+      <p class="section-lead">那些说出口的、与没能说出口的话。<br>均摘自游戏官方中文版。</p>
+    </header>
+
+    <div class="quotes">
+      <blockquote class="quote quote-hero reveal">
+        <p class="q-en">Because you live, I live.</p>
+        <p class="q-cn">因为你活着，所以我活着。—— 写在标题画面上的话</p>
+      </blockquote>
+
+      <blockquote class="quote reveal">
+        <p>「不过，正是因为毁灭将至，如今还活着才让人倍感开心。」</p>
+        <cite>—— 诗音</cite>
+      </blockquote>
+
+      <blockquote class="quote reveal">
+        <p>「就算是自己的内心孕育的感情，人们也总是很难立刻相信。不过，人们之所以活着……便是为了将可能是错觉的感情变成现实。」</p>
+        <cite>—— 亮</cite>
+      </blockquote>
+
+      <blockquote class="quote reveal">
+        <p>「凡是活着的人都有获得幸福的权利，我对此深信不疑。」</p>
+        <cite>—— 艾莉卡</cite>
+      </blockquote>
+
+      <blockquote class="quote reveal">
+        <p>「首先要清楚自己的无力。了解世界。这是一切的开始。也包括长大成人这件事。」</p>
+        <cite>—— 稻叶直人</cite>
+      </blockquote>
+
+      <blockquote class="quote reveal">
+        <p>「因为有未来，人们才明白活着的重要性。是她，让我们想起了如此理所当然的事情。」</p>
+        <cite>—— 枣</cite>
+      </blockquote>
+
+      <blockquote class="quote reveal">
+        <p>「过去的我，为守护所有人而活着……可现在，我只想守护你。我希望亮能够活下去。」</p>
+        <cite>—— 诗音</cite>
+      </blockquote>
+
+      <blockquote class="quote reveal">
+        <p>「即便毁灭降临，只要你那时还活着，我是不会让你死的。」</p>
+        <cite>—— 亮</cite>
+      </blockquote>
+
+      <blockquote class="quote reveal">
+        <p>「过去的我只是漫无目的地活着，不断犯下过错，如行尸走肉一般。让我感到自己真正活着的——是与你度过的时光。」</p>
+        <cite>—— 亮</cite>
+      </blockquote>
+
+      <blockquote class="quote quote-hero reveal">
+        <p class="q-cn q-final">「晚安，诗音――」</p>
+        <p class="q-sub">以及，这颗星球上最后的恋爱落下了帷幕。</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 楽 · 音乐 ========== -->
+<section id="music" class="section section-light">
+  <span class="wm" aria-hidden="true">楽</span>
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-kanji">楽</span>
+      <h2>音乐</h2>
+      <p class="section-lead">天门（Tenmon）—— 以《星之声》《秒速五厘米》闻名的新海诚御用作曲家。<br>他为这颗最后的星球，谱下了透明而辽阔的星空。</p>
+    </header>
+
+    <div class="music-grid">
+      <article class="music-card reveal">
+        <p class="music-no">主題歌</p>
+        <h3>little explorer</h3>
+        <p class="music-meta">演唱 原田瞳 ／ 作词 酒井伸和 ／ 作编曲 天门</p>
+        <p>少女踏上去往外界的旅程——这是属于诗音的心声，也是整部作品的第一句自白。</p>
+        <p class="music-links"><a href="https://www.bilibili.com/video/BV1WP4y1w73v" target="_blank" rel="noopener">B 站 · OP 4K 修复版</a><a href="https://www.youtube.com/watch?v=UqIwrFm7tKs" target="_blank" rel="noopener">YouTube · OP</a></p>
+      </article>
+
+      <article class="music-card reveal" style="--sd:.15s">
+        <p class="music-no">原声集</p>
+        <h3>Asterisk “eden*” Original Soundtrack</h3>
+        <p class="music-meta">minori ／ 2010.01.29 ／ 全曲 天门</p>
+        <p class="music-links"><a href="https://www.bilibili.com/video/BV1qb41177a5" target="_blank" rel="noopener">B 站 · OST 试听</a></p>
+      </article>
+
+      <article class="music-card music-card-wide reveal">
+        <p class="music-no">站内聆听</p>
+        <h3>游戏原声 · 选段</h3>
+        <p>本站已内嵌两首提取自游戏原声的乐曲，点击左下角的 <strong>♪</strong> 即可聆听：<strong>《主旋律》</strong>（edenBGM021）——贯穿全作、在最初与最后反复响起的主题曲；<strong>《终章》</strong>（edenBGM026）——结局组曲，诗音长眠时的音乐。</p>
+        <div class="track-table" aria-label="原声集曲目选">
+          <p class="trk"><i>01</i><span>little explorer <small>BGM ver. · 小小的探索者</small></span></p>
+          <p class="trk"><i>02</i><span>Rule <small>律则</small></span></p>
+          <p class="trk"><i>03</i><span>Instruction <small>指示</small></span></p>
+          <p class="trk"><i>04</i><span>Past desire <small>昔日的愿望</small></span></p>
+          <p class="trk"><i>05</i><span>Bird cage <small>鸟笼</small></span></p>
+          <p class="trk"><i>06</i><span>Unstable <small>动荡</small></span></p>
+          <p class="trk"><i>07</i><span>clear earth <small>澄澈大地</small></span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 析 · 赏析 ========== -->
+<section id="essay" class="section section-paper">
+  <span class="wm wm-left" aria-hidden="true">析</span>
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-kanji">析</span>
+      <h2>八个词，读完 eden*</h2>
+      <p class="section-lead">一部关于末日与救赎的作品，可以概括为这八个词。</p>
+    </header>
+
+    <div class="essay-grid">
+      <article class="essay-item reveal">
+        <h3><span>纯洁</span></h3>
+        <p>她白发胜雪，一尘不染。诗音的「纯洁」不是无知的天真，而是历经百年孤独仍未蒙尘的心。末日剥离了一切杂质——没有将来、没有算计、没有目的，两人之间只剩下「喜欢」本身。</p>
+      </article>
+      <article class="essay-item reveal" style="--sd:.1s">
+        <h3><span>神圣</span></h3>
+        <p>伊甸园、方舟、被献祭的圣女——作品中处处是宗教的影子。诗音以自己的一生为祭品，为人类换取未来；而爱上她的士兵完成的，是一场凡人式的救赎：把她从祭坛上接下来，让她重新做回「人」。</p>
+      </article>
+      <article class="essay-item reveal">
+        <h3><span>美好</span></h3>
+        <p>种番茄、晒被子、做晚饭、看星星。游戏用大量笔墨描绘日常，正因末日将至，这些微小的美好才千金难换。所谓天堂，不在宇宙船的另一端，而在两人相视一笑的瞬间。</p>
+      </article>
+      <article class="essay-item reveal" style="--sd:.1s">
+        <h3><span>救赎</span></h3>
+        <p>亮把诗音从设施的「保管」中救出，诗音把亮从空壳中救回；艾莉卡以命换自由，稻叶以死偿愧疚，拉维以抗命成全。每个人都以自己的方式，完成了对灵魂的赎回。</p>
+      </article>
+      <article class="essay-item reveal">
+        <h3><span>愿景</span></h3>
+        <p>「地球脱出计划」是人类最宏大的愿景：明知此生看不见彼岸，仍要为百年后的火种燃烧自己。而诗音的愿景小得多——看看外面的世界。宏大与渺小最终合一：文明的愿景，正是由无数小小的愿望累积而成。</p>
+      </article>
+      <article class="essay-item reveal" style="--sd:.1s">
+        <h3><span>忠贞</span></h3>
+        <p>明知她会死，明知地球会亡，亮依然选择留下。这不是冲动，而是清醒之后的忠诚——「像『世界毁灭』这样模糊不清、莫名其妙的事情，根本无关紧要」。忠于所爱之人，忠于自己的心，纵使结局已定，也绝不背弃。</p>
+      </article>
+      <article class="essay-item reveal">
+        <h3><span>不渝</span></h3>
+        <p>故事的最后，人类驶向新星，而亮守着山丘上的小小坟茔——「诗音，我会试着继续活下去」「我这人从不轻言放弃，或许会让你等很久」。他每日带着花来看她，走得很慢，像她还在身边一样。</p>
+      </article>
+      <article class="essay-item reveal" style="--sd:.1s">
+        <h3><span>相恋</span></h3>
+        <p>剥去科幻的外壳，eden* 讲的只是两个人的恋爱。地球上最后的恋爱物语——因为稀缺，所以纯粹；因为终结，所以永恒。<em>Because you live, I live.</em> 这大概是对「相恋」最简洁、也最深刻的注解。</p>
+      </article>
+    </div>
+
+    <div class="essay-close reveal">
+      <p class="essay-close-mark" aria-hidden="true">✦</p>
+      <p>乐园里独属于我们二人的时光——将永无止境地延续下去。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 終 · 终章 ========== -->
+<section id="finale" class="finale">
+  <canvas class="quote-stars" data-stars aria-hidden="true"></canvas>
+  <div class="finale-inner">
+    <p class="finale-star" aria-hidden="true">✦</p>
+    <h2 class="reveal">晚安，诗音。</h2>
+    <p class="finale-sub reveal">乐园里独属于我们二人的时光——将永无止境地延续下去。</p>
+    <p class="finale-en reveal">They were only two, on the planet.</p>
+    <div class="finale-epilogue reveal">
+      <p>「诗音，我会试着继续活下去。」</p>
+      <p>「我这人从不轻言放弃，或许会让你等很久。到那时，还请原谅我。」</p>
+      <p>「不过，未来……我一定会去见你的……」</p>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <p>本站为个人兴趣制作的<strong>非商业同人赏析站点</strong>，CG 与音乐提取自合法持有的游戏本体。</p>
+    <p>《eden*》及其全部图像与音乐之著作权归 <strong>minori</strong> 及各位创作者所有；部分资料引自 VNDB、维基百科与公开网络。立此存照，仅供同好交流。</p>
+    <p class="footer-bless">愿你也被这个世界温柔相待。✦</p>
+  </footer>
+</section>
+
+</main>
+
+<!-- ========== 灯箱 ========== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="图片放大查看">
+  <p class="lb-count" id="lbCount">1 / 23</p>
+  <button class="lb-close" id="lbClose" aria-label="关闭">×</button>
+  <button class="lb-prev" id="lbPrev" aria-label="上一张">‹</button>
+  <figure class="lb-figure">
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-next" id="lbNext" aria-label="下一张">›</button>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
