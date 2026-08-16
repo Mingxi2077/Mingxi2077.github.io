@@ -588,6 +588,16 @@ a:hover { color: var(--star); }
 }
 .md-disc:hover { background: var(--gold); color: #fff; }
 .md-disc.playing { animation: discSpin 6s linear infinite; background: var(--gold); color: #fff; }
+.md-disc.pulse {
+  animation: discPulse 1.6s ease-in-out infinite;
+  background: rgba(255,255,255,.95); color: var(--star);
+  box-shadow: 0 0 0 0 rgba(184,80,69,.45), 0 10px 30px -8px rgba(38,43,52,.3);
+}
+@keyframes discPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(184,80,69,.5), 0 10px 30px -8px rgba(38,43,52,.3); transform: scale(1); }
+  60%  { box-shadow: 0 0 0 14px rgba(184,80,69,0), 0 10px 30px -8px rgba(38,43,52,.3); transform: scale(1.06); }
+  100% { box-shadow: 0 0 0 0 rgba(184,80,69,0), 0 10px 30px -8px rgba(38,43,52,.3); transform: scale(1); }
+}
 @keyframes discSpin { to { transform: rotate(360deg); } }
 .md-panel {
   display: flex; align-items: center; gap: 8px;

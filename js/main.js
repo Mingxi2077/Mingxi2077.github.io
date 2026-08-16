@@ -209,33 +209,60 @@
     { src: "assets/audio/edenBGM026_A.mp3", title: "eden* 终章" },
     { src: "assets/audio/edenBGM021.mp3", title: "eden* 主旋律" },
     { src: "assets/audio/edenBGM020.mp3", title: "eden* 桃源" },
-    { src: "assets/audio/edenBGM024.mp3", title: "eden* 抉择" }
+    { src: "assets/audio/edenBGM024.mp3", title: "eden* 抉择" },
+    { src: "assets/audio/edenBGM015.mp3", title: "eden* 谢幕" },
+    { src: "assets/audio/edenBGM017.mp3", title: "eden* 探访" },
+    { src: "assets/audio/edenBGM003.mp3", title: "eden* 孤岛" },
+    { src: "assets/audio/edenBGM012.mp3", title: "eden* 姐妹" }
   ];
   var trackIdx = 0;
+  var wantPlay = false; // 期望处于播放状态（切歌后据此自动续播）
+
   function loadTrack(i) {
     trackIdx = (i + tracks.length) % tracks.length;
     bgm.src = tracks[trackIdx].src;
     mdTitle.textContent = tracks[trackIdx].title;
   }
   function startPlay() {
-    bgm.play().then(function () {
-      mdPlay.classList.add("playing");
-      dock.classList.add("active");
-    }).catch(function () {
-      mdTitle.textContent = "点击页面任意处开始播放";
-    });
+    wantPlay = true;
+    var p = bgm.play();
+    if (p && p.then) {
+      p.then(function () {
+        mdPlay.classList.add("playing");
+        mdPlay.classList.remove("pulse");
+        dock.classList.add("active");
+        mdTitle.textContent = tracks[trackIdx].title;
+      }).catch(function () {
+        mdPlay.classList.remove("playing");
+        mdPlay.classList.add("pulse");
+        mdTitle.textContent = "点一下页面任意处，音乐即响起";
+      });
+    }
+  }
+  function stopPlay() {
+    wantPlay = false;
+    bgm.pause();
+    mdPlay.classList.remove("playing");
   }
   mdPlay.addEventListener("click", function () {
-    if (bgm.paused) {
-      startPlay();
-    } else {
-      bgm.pause();
-      mdPlay.classList.remove("playing");
-    }
+    if (bgm.paused || !wantPlay) startPlay(); else stopPlay();
   });
-  // 自动播放：被浏览器拦截时，用户首次交互即开始
+  document.getElementById("mdPrev").addEventListener("click", function () {
+    loadTrack(trackIdx - 1);
+    if (wantPlay) startPlay(); else mdTitle.textContent = tracks[trackIdx].title;
+  });
+  document.getElementById("mdNext").addEventListener("click", function () {
+    loadTrack(trackIdx + 1);
+    if (wantPlay) startPlay(); else mdTitle.textContent = tracks[trackIdx].title;
+  });
+  bgm.addEventListener("ended", function () {
+    loadTrack(trackIdx + 1);
+    if (wantPlay) startPlay();
+  });
+  loadTrack(0);
+  // 自动播放：尽力尝试；被浏览器拦截则等待首次交互（Chrome 不允许无点击出声）
   function autoStart() {
-    if (bgm.paused) startPlay();
+    if (bgm.paused && wantPlay !== false) startPlay();
     ["pointerdown", "keydown", "touchstart", "wheel"].forEach(function (ev) {
       window.removeEventListener(ev, autoStart);
     });
@@ -250,14 +277,6 @@
       }
     }, 800);
   });
-  bgm.addEventListener("ended", function () {
-    mdPlay.classList.remove("playing");
-    loadTrack(trackIdx + 1);
-    bgm.play().then(function () { mdPlay.classList.add("playing"); }).catch(function () {});
-  });
-  document.getElementById("mdPrev").addEventListener("click", function () { loadTrack(trackIdx - 1); if (!bgm.paused) bgm.play().catch(function(){}); });
-  document.getElementById("mdNext").addEventListener("click", function () { loadTrack(trackIdx + 1); if (!bgm.paused) bgm.play().catch(function(){}); });
-  loadTrack(0);
 
   /* ============ 灯箱 ============ */
   var lb = document.getElementById("lightbox");
