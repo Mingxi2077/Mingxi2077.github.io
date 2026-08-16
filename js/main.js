@@ -202,8 +202,8 @@
   var mdPlay = document.getElementById("mdPlay");
   var mdTitle = document.getElementById("mdTitle");
   var tracks = [
-    { src: "assets/audio/edenBGM021.ogg", title: "eden* 主旋律" },
-    { src: "assets/audio/edenBGM026_A.ogg", title: "eden* 终章" }
+    { src: "assets/audio/edenBGM021.mp3", title: "eden* 主旋律" },
+    { src: "assets/audio/edenBGM026_A.mp3", title: "eden* 终章" }
   ];
   var trackIdx = 0;
   function loadTrack(i) {
@@ -216,7 +216,9 @@
       bgm.play().then(function () {
         mdPlay.classList.add("playing");
         dock.classList.add("active");
-      }).catch(function () {});
+      }).catch(function () {
+        mdTitle.textContent = "播放失败，请再点一次";
+      });
     } else {
       bgm.pause();
       mdPlay.classList.remove("playing");

@@ -323,7 +323,7 @@ a:hover { color: var(--star); }
   border-color: var(--gold-soft);
 }
 .char-card figure { margin: -34px -30px 26px; overflow: hidden; position: relative; }
-.char-card figure img { width: 100%; aspect-ratio: 16/9; object-fit: cover; transition: transform .8s var(--ease); }
+.char-card figure img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: 50% 22%; transition: transform .8s var(--ease); }
 .char-card:hover figure img { transform: scale(1.045); }
 .char-name { font-size: 19px; font-weight: 600; letter-spacing: .1em; }
 .char-name em {
@@ -341,7 +341,7 @@ a:hover { color: var(--star); }
 .char-featured figure { margin: 0; flex: 0 0 46%; }
 .char-featured figure img { aspect-ratio: 16/10; }
 .char-featured .char-body { flex: 1; }
-.char-card-wide { grid-column: 1 / -1; background: rgba(255,255,255,.4); }
+.char-card-two { grid-column: span 2; background: rgba(255,255,255,.4); }
 
 /* ============ 物 · 物语 ============ */
 .spoiler-gate {
@@ -630,6 +630,7 @@ a:hover { color: var(--star); }
   .char-featured { grid-column: span 1; flex-direction: column; gap: 0; }
   .char-featured figure { margin: -34px -30px 26px; flex: none; }
   .char-card-wide { grid-column: span 1; }
+  .char-card-two { grid-column: span 1; }
   .music-grid, .essay-grid { grid-template-columns: 1fr; }
   .about-strip { padding: 32px 26px; }
   .lightbox { padding: 60px 14px; }
