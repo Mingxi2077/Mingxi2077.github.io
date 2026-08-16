@@ -128,7 +128,7 @@
       if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
     });
   }, { threshold: .12, rootMargin: "0px 0px -6% 0px" });
-  document.querySelectorAll(".reveal, .timeline").forEach(function (el) { io.observe(el); });
+  document.querySelectorAll(".reveal, .timeline, .sec-divider").forEach(function (el) { io.observe(el); });
 
   /* ============ 数字滚动 ============ */
   var cio = new IntersectionObserver(function (entries) {
