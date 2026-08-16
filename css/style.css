@@ -832,3 +832,6 @@ a:hover { color: var(--star); }
   .vn-line { flex-direction: column; gap: 2px; }
   .finale-epilogue { margin-left: 16px; margin-right: 16px; }
 }
+
+/* 站名署名 */
+.footer-site { font-family: var(--latin); font-style: italic; font-size: 20px; letter-spacing: .14em; color: var(--gold-soft) !important; margin-bottom: 14px !important; }
