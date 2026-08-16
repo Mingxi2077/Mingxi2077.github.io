@@ -278,6 +278,21 @@
     }, 800);
   });
 
+  /* ============ OP 海报点击加载播放器 ============ */
+  var opPoster = document.getElementById("opPoster");
+  if (opPoster) {
+    opPoster.addEventListener("click", function () {
+      var holder = document.getElementById("opPlayer");
+      var f = document.createElement("iframe");
+      f.src = "https://player.bilibili.com/player.html?bvid=BV1WP4y1w73v&autoplay=1&high_quality=1&danmaku=0";
+      f.setAttribute("allowfullscreen", "");
+      f.setAttribute("scrolling", "no");
+      f.title = "eden* OP little explorer 4K 修复版";
+      holder.innerHTML = "";
+      holder.appendChild(f);
+    });
+  }
+
   /* ============ 灯箱 ============ */
   var lb = document.getElementById("lightbox");
   var lbImg = document.getElementById("lbImg");
