@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>eden-for-you ｜ 地球上最后的恋爱物语</title>
 <meta name="description" content="eden-for-you —— 献给 minori《eden* They Were Only Two, On The Planet》的同人赏析站：世界观、人物、物语、CG 绘卷、台词与音乐。Because you live, I live.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2310141f'/%3E%3Cpath d='M32 8l3.5 18L54 32l-18.5 6L32 56l-3.5-18L10 32l18.5-6z' fill='%23c8b078'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20fill=%22%2310141f%22/%3E%3Cpath%20d=%22M32%208l3.5%2018L54%2032l-18.5%206L32%2056l-3.5-18L10%2032l18.5-6z%22%20fill=%22%23c8b078%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- 大陆访问时 Google Fonts 可能被阻断：异步加载，绝不阻塞渲染，失败则回退系统宋体 -->
@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">跳到主要内容</a>
 
 <!-- ========== 阅读进度 ========== -->
 <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
@@ -34,15 +36,15 @@
 </nav>
 
 <!-- ========== 返回顶部 ========== -->
-<button class="to-top" id="toTop" aria-label="回到顶部">✦</button>
+<button type="button" class="to-top" id="toTop" aria-label="回到顶部">✦</button>
 
 <!-- ========== 音乐坞 ========== -->
 <div class="music-dock" id="musicDock">
-  <button class="md-disc" id="mdPlay" aria-label="播放或暂停音乐">♪</button>
+    <button type="button" class="md-disc" id="mdPlay" aria-label="播放音乐" aria-pressed="false" aria-controls="bgm">♪</button>
   <div class="md-panel">
-    <p class="md-title" id="mdTitle">eden* 主旋律</p>
-    <button class="md-btn" id="mdPrev" aria-label="上一首">‹</button>
-    <button class="md-btn" id="mdNext" aria-label="下一首">›</button>
+    <p class="md-title" id="mdTitle" aria-live="polite">eden* 终章</p>
+    <button type="button" class="md-btn" id="mdPrev" aria-label="上一首">‹</button>
+    <button type="button" class="md-btn" id="mdNext" aria-label="下一首">›</button>
   </div>
   <audio id="bgm" preload="auto" src="assets/audio/edenBGM026_A.mp3"></audio>
 </div>
@@ -54,12 +56,12 @@
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="hero-inner">
     <p class="hero-eyebrow">eden-for-you &nbsp;·&nbsp; minori &nbsp;·&nbsp; 2009</p>
-    <h1 class="hero-title" aria-label="eden*"><span class="ht-l" style="--d:.05s">e</span><span class="ht-l" style="--d:.2s">d</span><span class="ht-l" style="--d:.35s">e</span><span class="ht-l" style="--d:.5s">n</span><span class="star">*</span></h1>
+    <h1 class="hero-title"><span class="ht-l" style="--d:.05s">e</span><span class="ht-l" style="--d:.2s">d</span><span class="ht-l" style="--d:.35s">e</span><span class="ht-l" style="--d:.5s">n</span><span class="star">*</span></h1>
     <p class="hero-sub-en"><span class="ht-l" style="--d:.9s">They Were Only Two, On The Planet.</span></p>
     <p class="hero-sub-cn"><span class="ht-l" style="--d:1.1s">地球上，最后的恋爱物语</span></p>
     <p class="hero-tagline"><span class="ht-l" style="--d:1.35s">— Because you live, I live. —</span></p>
   </div>
-  <a class="scroll-cue" href="#op" aria-label="向下滚动">
+  <a class="scroll-cue" href="#op">
     <span>走进伊甸</span>
     <i aria-hidden="true"></i>
   </a>
@@ -85,7 +87,7 @@
   </div>
 </section>
 
-<main>
+<main id="main-content" tabindex="-1">
 
 <!-- ========== 启 · 世界观 ========== -->
 <section id="world" class="section section-light">
@@ -101,13 +103,13 @@
     </header>
 
     <!-- 百年时间轴 -->
-    <div class="timeline reveal" aria-label="世界观时间轴">
+    <div class="timeline reveal" role="list" aria-label="世界观时间轴">
       <div class="tl-track"><i></i></div>
-      <div class="tl-node" style="--sd:.1s"><b>百年前</b><span>「灭世之星」降临火星轨道</span></div>
-      <div class="tl-node" style="--sd:.3s"><b>统一政府</b><span>人类放下国界，携手求生</span></div>
-      <div class="tl-node" style="--sd:.5s"><b>菲利克斯</b><span>人造天才们为方舟而生</span></div>
-      <div class="tl-node" style="--sd:.7s"><b>第 99 年</b><span>脱出计划完成·人类启程</span></div>
-      <div class="tl-node" style="--sd:.9s"><b>现在</b><span>孤岛·第 703 研究所</span></div>
+      <div class="tl-node" role="listitem" style="--sd:.1s"><b>百年前</b><span>「灭世之星」降临火星轨道</span></div>
+      <div class="tl-node" role="listitem" style="--sd:.3s"><b>统一政府</b><span>人类放下国界，携手求生</span></div>
+      <div class="tl-node" role="listitem" style="--sd:.5s"><b>菲利克斯</b><span>人造天才们为方舟而生</span></div>
+      <div class="tl-node" role="listitem" style="--sd:.7s"><b>第 99 年</b><span>脱出计划完成·人类启程</span></div>
+      <div class="tl-node" role="listitem" style="--sd:.9s"><b>现在</b><span>孤岛·第 703 研究所</span></div>
     </div>
 
     <div class="world-grid">
@@ -136,11 +138,11 @@
     </div>
 
     <!-- 数字带 -->
-    <div class="stats-band reveal" aria-label="本作数字印象">
-      <div class="stat"><b data-count="100">0</b><span>年 · 地球余命</span></div>
-      <div class="stat"><b data-count="99">0</b><span>年 · 诗音走过的岁月</span></div>
-      <div class="stat"><b data-count="2">0</b><span>人 · 留在地球之上</span></div>
-      <div class="stat"><b data-count="1">0</b><span>颗 · 东天的红星</span></div>
+    <div class="stats-band reveal" role="list" aria-label="本作数字印象">
+      <div class="stat" role="listitem"><b data-count="100">100</b><span>年 · 地球余命</span></div>
+      <div class="stat" role="listitem"><b data-count="99">99</b><span>年 · 诗音走过的岁月</span></div>
+      <div class="stat" role="listitem"><b data-count="2">2</b><span>人 · 留在地球之上</span></div>
+      <div class="stat" role="listitem"><b data-count="1">1</b><span>颗 · 东天的红星</span></div>
     </div>
 
     <aside class="about-strip reveal">
@@ -187,7 +189,7 @@
       <article class="char-card char-featured reveal">
         <figure><img src="assets/cg/ev007b02.jpg" alt="绿野中微笑的诗音" loading="lazy"></figure>
         <div class="char-body">
-          <p class="char-name">诗音 <em>Sion</em><i class="char-jp">シオン</i></p>
+          <h3 class="char-name">诗音 <em>Sion</em><i class="char-jp">シオン</i></h3>
           <p class="char-cv">CV 志村由美</p>
           <p>白发的菲利克斯少女，地球脱出计划的中枢——「拯救了人类的智囊」。她的身体已近百岁，心却纯净如初生。为人类奉献了一切之后，她的愿望小得可怜：<strong>看看外面的世界。</strong></p>
           <p class="char-quote">「在安静的，逐渐走向毁灭的世界里……我经历着第一次，同时也是最后一次的恋爱——」</p>
@@ -197,7 +199,7 @@
       <article class="char-card reveal" style="--sd:.1s">
         <figure><img src="assets/cg/ev161a01_mugai_a.jpg" alt="榛名亮" loading="lazy"></figure>
         <div class="char-body">
-          <p class="char-name">榛名亮 <em>Ryou</em><i class="char-jp">榛名 亮</i></p>
+          <h3 class="char-name">榛名亮 <em>Ryou</em><i class="char-jp">榛名 亮</i></h3>
           <p class="char-cv">CV 间岛淳司</p>
           <p>前特殊部队 GAT 准尉，孤儿。幼年时曾与逃亡的菲利克斯·夏目相依为命；夏目被带回后，他成了只为命令活着的空壳士兵。直到被派往孤岛——看守一位少女。</p>
           <p class="char-quote">「过去的我只是漫无目的地活着，不断犯下过错，如行尸走肉一般。让我感到自己真正活着的——是与你度过的时光。」</p>
@@ -207,7 +209,7 @@
       <article class="char-card reveal" style="--sd:.2s">
         <figure><img src="assets/cg/ev066a02_big.jpg" alt="突围而战的女仆艾莉卡" loading="lazy"></figure>
         <div class="char-body">
-          <p class="char-name">艾莉卡 <em>Elica</em><i class="char-jp">エリカ</i></p>
+          <h3 class="char-name">艾莉卡 <em>Elica</em><i class="char-jp">エリカ</i></h3>
           <p class="char-cv">CV 中岛裕美子</p>
           <p>诗音的「姐姐」，同为菲利克斯的女仆。年幼的诗音曾被她从绝望中救出。油尽灯枯之际，她为诗音与亮，点燃了逃亡的火把。</p>
           <p class="char-quote">「凡是活着的人都有获得幸福的权利，我对此深信不疑。」</p>
@@ -217,7 +219,7 @@
       <article class="char-card reveal" style="--sd:.1s">
         <figure><img src="assets/cg/ev015a01.jpg" alt="拉维尼亚" loading="lazy" style="object-position:50% 0%"></figure>
         <div class="char-body">
-          <p class="char-name">浅井·F·拉维尼娅 <em>Lavinia</em><i class="char-jp">ラヴィニア</i></p>
+          <h3 class="char-name">浅井·F·拉维尼娅 <em>Lavinia</em><i class="char-jp">ラヴィニア</i></h3>
           <p class="char-cv">CV 中村绘里子</p>
           <p>护卫队准尉，亮的后辈。率真活泼的少女，对亮怀着笨拙的恋慕。在孤岛的枪口之前，她最终选择了温柔的抗命。</p>
           <p class="char-quote">「刚才我不都说过了么？叫我拉维就好。」</p>
@@ -227,7 +229,7 @@
       <article class="char-card reveal" style="--sd:.2s">
         <figure><img src="assets/cg/ev030c01_mugai_a.jpg" alt="稻叶直人" loading="lazy"></figure>
         <div class="char-body">
-          <p class="char-name">稻叶直人 <em>Inaba</em><i class="char-jp">稲葉 直人</i></p>
+          <h3 class="char-name">稻叶直人 <em>Inaba</em><i class="char-jp">稲葉 直人</i></h3>
           <p class="char-cv">CV 远近孝一</p>
           <p>护卫队队长，少佐。当年亲手带回逃亡的夏目，是他半生的心结。他以自己的方式守护着亮——纵容那场「劫走」，并为之付出了一切。</p>
           <p class="char-quote">「首先要清楚自己的无力。了解世界。这是一切的开始。也包括长大成人这件事。」</p>
@@ -237,7 +239,7 @@
       <article class="char-card reveal" style="--sd:.3s">
         <figure><img src="assets/cg/ev137a01.jpg" alt="塔野真夜" loading="lazy"></figure>
         <div class="char-body">
-          <p class="char-name">塔野真夜 <em>Maya</em><i class="char-jp">塔野 真夜</i></p>
+          <h3 class="char-name">塔野真夜 <em>Maya</em><i class="char-jp">塔野 真夜</i></h3>
           <p class="char-cv">CV 后藤麻衣</p>
           <p>自由新闻记者，乘直升机寻访孤岛，与逃亡后的两人重逢，成为地球上最后恋情的见证者。</p>
           <p class="char-quote">「即便写出报道，我也不清楚能否清晰地传达给世人。」</p>
@@ -247,7 +249,7 @@
       <article class="char-card char-card-two reveal">
         <figure class="char-fig-side"><img src="assets/cg/portrait_natsume.jpg" alt="夏目" loading="lazy"></figure>
         <div class="char-body">
-          <p class="char-name">夏目 <em>Natsume</em><i class="char-jp">ナツメ</i></p>
+          <h3 class="char-name">夏目 <em>Natsume</em><i class="char-jp">ナツメ</i></h3>
           <p class="char-cv">CV 冈田纯子</p>
           <p>从研究所逃亡的菲利克斯，曾与年少的亮以「姐弟」相称，短暂地照亮过彼此。她被带回的那一天，成了亮与稻叶各自心中无法愈合的裂痕——也是这一切故事开始之前的前奏。</p>
           <p class="char-quote">「因为有未来，人们才明白活着的重要性。是她，让我们想起了如此理所当然的事情。」</p>
@@ -272,11 +274,11 @@
       <div class="spoiler-gate-inner">
         <p class="spoiler-mark">✦</p>
         <p>以下内容包含<strong>完整剧透</strong><br>若你尚未游玩本作，建议先闭上眼睛</p>
-        <button type="button" id="spoilerOpen">我已做好准备 —— 继续阅读</button>
+        <button type="button" id="spoilerOpen" aria-controls="storyBody">我已做好准备 —— 继续阅读</button>
       </div>
     </div>
 
-    <div class="story" id="storyBody">
+    <div class="story" id="storyBody" tabindex="-1">
       <article class="chapter reveal">
         <p class="chapter-no"><i>壱</i>第一章</p>
         <h3>孤岛 · 相遇</h3>
@@ -330,7 +332,7 @@
         <figure class="chapter-fig"><img src="assets/cg/ev224a01.jpg" alt="永眠" loading="lazy"><figcaption>「晚安，诗音――」</figcaption></figure>
         <div class="chapter-epilogue">
           <p class="chapter-no"><i>後</i>后日谈</p>
-          <p>他在她最喜欢的山丘上，用双手挖好墓穴，将艾莉卡的遗发放进她交叠的双手——「如此一来，诗音跟艾丽卡这对姐妹就能永远陪着彼此了。」诗音的坟墓不需要墓碑，她所铸就的伟业，将被镌刻在人类的历史当中。「诗音，我会试着继续活下去。」「明天，我会带花过来。」如今已不必配合诗音的步调，但他仍然走得很慢。</p>
+          <p>他在她最喜欢的山丘上，用双手挖好墓穴，将艾莉卡的遗发放进她交叠的双手——「如此一来，诗音跟艾莉卡这对姐妹就能永远陪着彼此了。」诗音的坟墓不需要墓碑，她所铸就的伟业，将被镌刻在人类的历史当中。「诗音，我会试着继续活下去。」「明天，我会带花过来。」如今已不必配合诗音的步调，但他仍然走得很慢。</p>
         </div>
       </article>
     </div>
@@ -349,35 +351,35 @@
       <p class="section-lead">ちこたむ笔下的末日与乐园，全部取自游戏原版 CG。点击图片放大欣赏。</p>
     </header>
     <div class="gallery" id="galleryGrid">
-      <figure class="g-item reveal"><img src="assets/cg/ev007b02.jpg" data-cap="绿野 · 一望无际的绿景中莞尔一笑" alt="绿野中微笑的诗音" loading="lazy"><figcaption>绿野</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev006.jpg" data-cap="逐鸟 · 第一次外出，她追逐着鸟儿" alt="诗音追逐飞鸟" loading="lazy"><figcaption>逐鸟</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev007a01.jpg" data-cap="山丘 · 她目送鸟儿飞向天空的尽头" alt="山丘上的诗音" loading="lazy"><figcaption>山丘</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev047a01_big.jpg" data-cap="对坐 · 士兵与圣女的距离" alt="士兵与诗音对坐交谈" loading="lazy"><figcaption>对坐</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev071a01.jpg" data-cap="托付 · 艾莉卡最后的愿望" alt="艾莉卡的托付" loading="lazy"><figcaption>托付</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev066a02_big.jpg" data-cap="突围 · 女仆的裙裾扫过枪口" alt="艾莉卡突围之战" loading="lazy"><figcaption>突围</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev215a01.jpg" data-cap="夜战 · 为了妹妹的未来" alt="艾莉卡对战士兵" loading="lazy"><figcaption>夜战</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev003_big.jpg" data-cap="启程 · 通往无悔未来的选择" alt="启程" loading="lazy"><figcaption>启程</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev223a01.jpg" data-cap="风立 · 微风拂过发梢" alt="风立" loading="lazy"><figcaption>风立</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev107a03.jpg" data-cap="相谈 · 与真夜的夜话" alt="诗音与真夜交谈" loading="lazy"><figcaption>相谈</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev134a51.jpg" data-cap="筹谋 · 静夜里的思量" alt="筹谋" loading="lazy"><figcaption>筹谋</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev125a01.jpg" data-cap="相依 · 送别真夜之后" alt="相依的两人" loading="lazy"><figcaption>相依</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev065a01.jpg" data-cap="少佐 · 军人自有军人的方式" alt="办公室中的稻叶" loading="lazy"><figcaption>少佐</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev133a01.jpg" data-cap="倾听 · 诗音与来访的友人" alt="交谈" loading="lazy"><figcaption>倾听</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev241a01.jpg" data-cap="往昔 · 山间小屋的旧日" alt="往昔" loading="lazy"><figcaption>往昔</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev242a01.jpg" data-cap="追忆 · 夏目与年幼的亮" alt="夏目与年幼的亮" loading="lazy"><figcaption>追忆</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev099a01.jpg" data-cap="到访 · 乘直升机而来的记者" alt="真夜到访" loading="lazy"><figcaption>到访</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev201a01.jpg" data-cap="晚餐 · 两人份的餐桌" alt="餐桌" loading="lazy"><figcaption>追忆</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev131a01.jpg" data-cap="拥抱 · 「你……还在这里。」" alt="亮的拥抱" loading="lazy"><figcaption>拥抱</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev131a02.jpg" data-cap="相拥 · 再也不会让你感到悲伤了" alt="相拥" loading="lazy"><figcaption>相拥</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev238a01_big.jpg" data-cap="清晨 · 最后的醒来" alt="最后的清晨" loading="lazy"><figcaption>清晨</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev203b01.jpg" data-cap="誓约 · 星空下的相拥" alt="星夜相拥" loading="lazy"><figcaption>誓约</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev248b01.jpg" data-cap="漫步 · 最后的散步" alt="最后的散步" loading="lazy"><figcaption>漫步</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev224a01.jpg" data-cap="永眠 · 「晚安，诗音――」" alt="永眠" loading="lazy"><figcaption>永眠</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev002a01.jpg" data-cap="约定 · 「因为……跟你约好了……」" alt="约定" loading="lazy"><figcaption>约定</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev162a01.jpg" data-cap="明日之花 · 「明天，我会带花过来。」" alt="明日之花" loading="lazy"><figcaption>明日之花</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev015a01.jpg" data-cap="后辈 · 浅井·F·拉维尼娅" alt="拉维尼娅" loading="lazy"><figcaption>后辈</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev016a01_mugai.jpg" data-cap="调令 · 前往第 703 研究所" alt="调令" loading="lazy"><figcaption>调令</figcaption></figure>
-      <figure class="g-item reveal"><img src="assets/cg/ev035a01.jpg" data-cap="守护 · 绝不能将她卷进来" alt="守护" loading="lazy"><figcaption>守护</figcaption></figure>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev007b02.jpg" data-cap="绿野 · 一望无际的绿景中莞尔一笑" alt="绿野中微笑的诗音" loading="lazy"><span class="g-caption">绿野</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev006.jpg" data-cap="逐鸟 · 第一次外出，她追逐着鸟儿" alt="诗音追逐飞鸟" loading="lazy"><span class="g-caption">逐鸟</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev007a01.jpg" data-cap="山丘 · 她目送鸟儿飞向天空的尽头" alt="山丘上的诗音" loading="lazy"><span class="g-caption">山丘</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev047a01_big.jpg" data-cap="对坐 · 士兵与圣女的距离" alt="士兵与诗音对坐交谈" loading="lazy"><span class="g-caption">对坐</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev071a01.jpg" data-cap="托付 · 艾莉卡最后的愿望" alt="艾莉卡的托付" loading="lazy"><span class="g-caption">托付</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev066a02_big.jpg" data-cap="突围 · 女仆的裙裾扫过枪口" alt="艾莉卡突围之战" loading="lazy"><span class="g-caption">突围</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev215a01.jpg" data-cap="夜战 · 为了妹妹的未来" alt="艾莉卡对战士兵" loading="lazy"><span class="g-caption">夜战</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev003_big.jpg" data-cap="启程 · 通往无悔未来的选择" alt="启程" loading="lazy"><span class="g-caption">启程</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev223a01.jpg" data-cap="风立 · 微风拂过发梢" alt="风立" loading="lazy"><span class="g-caption">风立</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev107a03.jpg" data-cap="相谈 · 与真夜的夜话" alt="诗音与真夜交谈" loading="lazy"><span class="g-caption">相谈</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev134a51.jpg" data-cap="筹谋 · 静夜里的思量" alt="筹谋" loading="lazy"><span class="g-caption">筹谋</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev125a01.jpg" data-cap="相依 · 送别真夜之后" alt="相依的两人" loading="lazy"><span class="g-caption">相依</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev065a01.jpg" data-cap="少佐 · 军人自有军人的方式" alt="办公室中的稻叶" loading="lazy"><span class="g-caption">少佐</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev133a01.jpg" data-cap="倾听 · 诗音与来访的友人" alt="交谈" loading="lazy"><span class="g-caption">倾听</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev241a01.jpg" data-cap="往昔 · 山间小屋的旧日" alt="往昔" loading="lazy"><span class="g-caption">往昔</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev242a01.jpg" data-cap="追忆 · 夏目与年幼的亮" alt="夏目与年幼的亮" loading="lazy"><span class="g-caption">追忆</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev099a01.jpg" data-cap="到访 · 乘直升机而来的记者" alt="真夜到访" loading="lazy"><span class="g-caption">到访</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev201a01.jpg" data-cap="晚餐 · 两人份的餐桌" alt="餐桌" loading="lazy"><span class="g-caption">晚餐</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev131a01.jpg" data-cap="拥抱 · 「你……还在这里。」" alt="亮的拥抱" loading="lazy"><span class="g-caption">拥抱</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev131a02.jpg" data-cap="相拥 · 再也不会让你感到悲伤了" alt="相拥" loading="lazy"><span class="g-caption">相拥</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev238a01_big.jpg" data-cap="清晨 · 最后的醒来" alt="最后的清晨" loading="lazy"><span class="g-caption">清晨</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev203b01.jpg" data-cap="誓约 · 星空下的相拥" alt="星夜相拥" loading="lazy"><span class="g-caption">誓约</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev248b01.jpg" data-cap="漫步 · 最后的散步" alt="最后的散步" loading="lazy"><span class="g-caption">漫步</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev224a01.jpg" data-cap="永眠 · 「晚安，诗音――」" alt="永眠" loading="lazy"><span class="g-caption">永眠</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev002a01.jpg" data-cap="约定 · 「因为……跟你约好了……」" alt="约定" loading="lazy"><span class="g-caption">约定</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev162a01.jpg" data-cap="明日之花 · 「明天，我会带花过来。」" alt="明日之花" loading="lazy"><span class="g-caption">明日之花</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev015a01.jpg" data-cap="后辈 · 浅井·F·拉维尼娅" alt="拉维尼娅" loading="lazy"><span class="g-caption">后辈</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev016a01_mugai.jpg" data-cap="调令 · 前往第 703 研究所" alt="调令" loading="lazy"><span class="g-caption">调令</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg/ev035a01.jpg" data-cap="守护 · 绝不能将她卷进来" alt="守护" loading="lazy"><span class="g-caption">守护</span></button>
     </div>
   </div>
 </section>
@@ -480,15 +482,15 @@
         <p class="music-no">站内聆听</p>
         <h3>游戏原声 · 八曲</h3>
         <p>点击左下角的 <strong>♪</strong> 即可聆听（进入页面将自动开始；若浏览器拦截，♪ 会轻轻闪烁提醒，点击页面任意处即响）。曲名按剧中场景命名：</p>
-        <div class="track-table" aria-label="站内曲单">
-          <p class="trk"><i>01</i><span>终章 <small>edenBGM026 · 诗音长眠时的结局组曲</small></span></p>
-          <p class="trk"><i>02</i><span>主旋律 <small>edenBGM021 · 贯穿全作、最初与最后反复响起</small></span></p>
-          <p class="trk"><i>03</i><span>桃源 <small>edenBGM020 · 隐居日常的旋律</small></span></p>
-          <p class="trk"><i>04</i><span>抉择 <small>edenBGM024 · 「你……还在这里」</small></span></p>
-          <p class="trk"><i>05</i><span>谢幕 <small>edenBGM015 · 结局的告白蒙太奇</small></span></p>
-          <p class="trk"><i>06</i><span>探访 <small>edenBGM017 · 山中小屋的来客</small></span></p>
-          <p class="trk"><i>07</i><span>孤岛 <small>edenBGM003 · 设施中的日常</small></span></p>
-          <p class="trk"><i>08</i><span>姐妹 <small>edenBGM012 · 艾莉卡与诗音</small></span></p>
+        <div class="track-table" role="list" aria-label="站内曲单">
+          <p class="trk" role="listitem"><i>01</i><span>终章 <small>edenBGM026 · 诗音长眠时的结局组曲</small></span></p>
+          <p class="trk" role="listitem"><i>02</i><span>主旋律 <small>edenBGM021 · 贯穿全作、最初与最后反复响起</small></span></p>
+          <p class="trk" role="listitem"><i>03</i><span>桃源 <small>edenBGM020 · 隐居日常的旋律</small></span></p>
+          <p class="trk" role="listitem"><i>04</i><span>抉择 <small>edenBGM024 · 「你……还在这里」</small></span></p>
+          <p class="trk" role="listitem"><i>05</i><span>谢幕 <small>edenBGM015 · 结局的告白蒙太奇</small></span></p>
+          <p class="trk" role="listitem"><i>06</i><span>探访 <small>edenBGM017 · 山中小屋的来客</small></span></p>
+          <p class="trk" role="listitem"><i>07</i><span>孤岛 <small>edenBGM003 · 设施中的日常</small></span></p>
+          <p class="trk" role="listitem"><i>08</i><span>姐妹 <small>edenBGM012 · 艾莉卡与诗音</small></span></p>
         </div>
       </article>
     </div>
@@ -623,15 +625,15 @@
 </main>
 
 <!-- ========== 灯箱 ========== -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="图片放大查看">
-  <p class="lb-count" id="lbCount">1 / 23</p>
-  <button class="lb-close" id="lbClose" aria-label="关闭">×</button>
-  <button class="lb-prev" id="lbPrev" aria-label="上一张">‹</button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbCap" tabindex="-1" hidden>
+  <p class="lb-count" id="lbCount" aria-live="polite">01 / 29</p>
+  <button type="button" class="lb-close" id="lbClose" aria-label="关闭图片查看">×</button>
+  <button type="button" class="lb-prev" id="lbPrev" aria-label="上一张">‹</button>
   <figure class="lb-figure">
-    <img id="lbImg" src="" alt="">
+    <img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
     <figcaption id="lbCap"></figcaption>
   </figure>
-  <button class="lb-next" id="lbNext" aria-label="下一张">›</button>
+  <button type="button" class="lb-next" id="lbNext" aria-label="下一张">›</button>
 </div>
 
 <script src="js/main.js"></script>

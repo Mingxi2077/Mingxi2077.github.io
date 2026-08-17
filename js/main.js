@@ -9,6 +9,7 @@
   /* ============ 星空（星辰 + 光尘 + 红星 + 流星 + 鼠标视差） ============ */
   function makeStars(canvas, opts) {
     var ctx = canvas.getContext("2d");
+    if (!ctx) return;
     var stars = [], dust = [], w, h, dpr;
     var mx = 0, my = 0, tmx = 0, tmy = 0; // 鼠标视差
     var parallax = opts && opts.parallax;
@@ -110,11 +111,14 @@
           if (shoot.life > 60) { shoot = null; nextShoot = t + 400 + Math.random() * 700; }
         }
       }
-      requestAnimationFrame(draw);
+      if (!reduceMotion) requestAnimationFrame(draw);
     }
 
     resize();
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", function () {
+      resize();
+      if (reduceMotion) draw();
+    });
     requestAnimationFrame(draw);
   }
 
@@ -123,32 +127,43 @@
   document.querySelectorAll("canvas[data-stars]").forEach(function (c) { makeStars(c); });
 
   /* ============ 滚动显现 ============ */
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-    });
-  }, { threshold: .12, rootMargin: "0px 0px -6% 0px" });
-  document.querySelectorAll(".reveal, .timeline, .sec-divider").forEach(function (el) { io.observe(el); });
+  var revealTargets = document.querySelectorAll(".reveal, .timeline, .sec-divider");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: .12, rootMargin: "0px 0px -6% 0px" });
+    revealTargets.forEach(function (el) { io.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add("in"); });
+  }
 
   /* ============ 数字滚动 ============ */
-  var cio = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      var el = e.target, target = parseInt(el.getAttribute("data-count"), 10) || 0;
-      cio.unobserve(el);
-      if (reduceMotion) { el.textContent = target; return; }
-      var start = null, dur = 1600;
-      function step(ts) {
-        if (!start) start = ts;
-        var p = Math.min((ts - start) / dur, 1);
-        p = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(target * p);
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    });
-  }, { threshold: .5 });
-  document.querySelectorAll("[data-count]").forEach(function (el) { cio.observe(el); });
+  var countTargets = document.querySelectorAll("[data-count]");
+  if ("IntersectionObserver" in window) {
+    if (!reduceMotion) countTargets.forEach(function (el) { el.textContent = "0"; });
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, target = parseInt(el.getAttribute("data-count"), 10) || 0;
+        cio.unobserve(el);
+        if (reduceMotion) { el.textContent = target; return; }
+        var start = null, dur = 1600;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          p = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * p);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: .5 });
+    countTargets.forEach(function (el) { cio.observe(el); });
+  } else {
+    countTargets.forEach(function (el) { el.textContent = el.getAttribute("data-count"); });
+  }
 
   /* ============ 导航高亮 / 深色区适配 / 返回顶部 ============ */
   var progressBar = document.getElementById("progressBar");
@@ -169,7 +184,12 @@
     for (var i = 0; i < sections.length; i++) {
       if (sections[i] && sections[i].offsetTop <= y) active = i;
     }
-    navLinks.forEach(function (a, i) { a.classList.toggle("active", i === active); });
+    navLinks.forEach(function (a, i) {
+      var isActive = i === active;
+      a.classList.toggle("active", isActive);
+      if (isActive) a.setAttribute("aria-current", "location");
+      else a.removeAttribute("aria-current");
+    });
 
     var mid = window.scrollY + window.innerHeight * .5, onDark = false;
     for (var d = 0; d < darkSections.length; d++) {
@@ -196,6 +216,7 @@
       setTimeout(function () { gate.remove(); }, 650);
       setTimeout(function () {
         story.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+        story.focus({ preventScroll: true });
       }, 50);
     });
   }
@@ -230,11 +251,15 @@
       p.then(function () {
         mdPlay.classList.add("playing");
         mdPlay.classList.remove("pulse");
+        mdPlay.setAttribute("aria-pressed", "true");
+        mdPlay.setAttribute("aria-label", "暂停音乐");
         dock.classList.add("active");
         mdTitle.textContent = tracks[trackIdx].title;
       }).catch(function () {
         mdPlay.classList.remove("playing");
         mdPlay.classList.add("pulse");
+        mdPlay.setAttribute("aria-pressed", "false");
+        mdPlay.setAttribute("aria-label", "播放音乐");
         mdTitle.textContent = "点一下页面任意处，音乐即响起";
       });
     }
@@ -243,6 +268,8 @@
     wantPlay = false;
     bgm.pause();
     mdPlay.classList.remove("playing");
+    mdPlay.setAttribute("aria-pressed", "false");
+    mdPlay.setAttribute("aria-label", "播放音乐");
   }
   mdPlay.addEventListener("click", function () {
     if (bgm.paused || !wantPlay) startPlay(); else stopPlay();
@@ -286,6 +313,7 @@
       var f = document.createElement("iframe");
       f.src = "https://player.bilibili.com/player.html?bvid=BV1WP4y1w73v&autoplay=1&high_quality=1&danmaku=0";
       f.setAttribute("allowfullscreen", "");
+      f.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
       f.setAttribute("scrolling", "no");
       f.title = "eden* OP little explorer 4K 修复版";
       holder.innerHTML = "";
@@ -300,22 +328,35 @@
   var lbCount = document.getElementById("lbCount");
   var items = Array.prototype.slice.call(document.querySelectorAll(".g-item img"));
   var cur = 0;
+  var lastFocus = null;
+  var previousOverflow = "";
 
   function openLb(i) {
+    var wasOpen = lb.classList.contains("show");
+    if (!wasOpen) {
+      lastFocus = document.activeElement;
+      previousOverflow = document.body.style.overflow;
+    }
     cur = (i + items.length) % items.length;
     lbImg.src = items[cur].src;
     lbImg.alt = items[cur].alt || "";
     lbCap.textContent = items[cur].getAttribute("data-cap") || "";
     lbCount.textContent = String(cur + 1).padStart(2, "0") + " / " + String(items.length).padStart(2, "0");
+    lb.hidden = false;
     lb.classList.add("show");
     document.body.style.overflow = "hidden";
+    if (!wasOpen) document.getElementById("lbClose").focus();
     // 预加载相邻图
     var pre = new Image();
     pre.src = items[(cur + 1) % items.length].src;
   }
   function closeLb() {
+    if (!lb.classList.contains("show")) return;
     lb.classList.remove("show");
-    document.body.style.overflow = "";
+    lb.hidden = true;
+    document.body.style.overflow = previousOverflow;
+    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+    lastFocus = null;
   }
   items.forEach(function (img, i) {
     img.parentElement.addEventListener("click", function () { openLb(i); });
@@ -329,5 +370,15 @@
     if (e.key === "Escape") closeLb();
     if (e.key === "ArrowLeft") openLb(cur - 1);
     if (e.key === "ArrowRight") openLb(cur + 1);
+    if (e.key === "Tab") {
+      var focusable = [
+        document.getElementById("lbClose"),
+        document.getElementById("lbPrev"),
+        document.getElementById("lbNext")
+      ];
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 })();

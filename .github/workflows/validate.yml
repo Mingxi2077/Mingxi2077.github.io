@@ -1,0 +1,24 @@
+name: Validate static site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify content and resources
+        run: node scripts/verify.mjs
+      - name: Validate HTML semantics
+        run: npx --yes html-validate@11.7.0 index.html
