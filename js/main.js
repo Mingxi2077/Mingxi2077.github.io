@@ -238,55 +238,173 @@
   ];
   var trackIdx = 0;
   var wantPlay = false; // 期望处于播放状态（切歌后据此自动续播）
+  var playerState = "paused";
+  var sourceVersion = 0;
+  var playAttempt = 0;
+  var prefetchLinks = {};
+  var prefetchTimer = 0;
+
+  function setPlayerState(state, message) {
+    playerState = state;
+    var isPlaying = state === "playing";
+    var isLoading = state === "loading" || state === "buffering";
+    var isPressed = isPlaying || isLoading;
+
+    mdPlay.classList.toggle("playing", isPlaying);
+    mdPlay.classList.toggle("loading", isLoading);
+    mdPlay.classList.toggle("pulse", state === "blocked" || state === "error");
+    dock.classList.toggle("buffering", isLoading);
+    dock.setAttribute("aria-busy", isLoading ? "true" : "false");
+    mdPlay.setAttribute("aria-pressed", isPressed ? "true" : "false");
+
+    if (isPlaying) mdPlay.setAttribute("aria-label", "暂停音乐");
+    else if (isLoading) mdPlay.setAttribute("aria-label", "停止载入音乐");
+    else if (state === "error") mdPlay.setAttribute("aria-label", "重新播放音乐");
+    else mdPlay.setAttribute("aria-label", "播放音乐");
+
+    if (message) mdTitle.textContent = message;
+    else mdTitle.textContent = tracks[trackIdx].title;
+  }
+
+  function bufferedAhead() {
+    for (var i = 0; i < bgm.buffered.length; i++) {
+      if (bgm.currentTime >= bgm.buffered.start(i) && bgm.currentTime <= bgm.buffered.end(i)) {
+        return bgm.buffered.end(i) - bgm.currentTime;
+      }
+    }
+    return 0;
+  }
+
+  function networkAllowsPrefetch() {
+    var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (!connection) return true;
+    if (connection.saveData) return false;
+    return connection.effectiveType !== "slow-2g" && connection.effectiveType !== "2g";
+  }
+
+  function prefetchTrack(i, userIntent) {
+    var idx = (i + tracks.length) % tracks.length;
+    var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (idx === trackIdx || prefetchLinks[idx]) return;
+    if (connection && connection.saveData) return;
+    if (!userIntent && !networkAllowsPrefetch()) return;
+
+    var link = document.createElement("link");
+    link.rel = "prefetch";
+    link.as = "audio";
+    link.href = tracks[idx].src;
+    link.addEventListener("error", function () {
+      delete prefetchLinks[idx];
+      link.remove();
+    }, { once: true });
+    prefetchLinks[idx] = link;
+    document.head.appendChild(link);
+  }
+
+  function scheduleNextPrefetch() {
+    if (!wantPlay || !networkAllowsPrefetch()) return;
+    var remaining = isFinite(bgm.duration) ? bgm.duration - bgm.currentTime : Infinity;
+    if (bufferedAhead() < 30 && remaining > 30) return;
+
+    clearTimeout(prefetchTimer);
+    prefetchTimer = window.setTimeout(function () {
+      var run = function () { prefetchTrack(trackIdx + 1, false); };
+      if ("requestIdleCallback" in window) window.requestIdleCallback(run, { timeout: 2000 });
+      else run();
+    }, 900);
+  }
 
   function loadTrack(i) {
+    sourceVersion++;
+    playAttempt++;
     trackIdx = (i + tracks.length) % tracks.length;
+    bgm.pause();
     bgm.src = tracks[trackIdx].src;
+    bgm.load();
     mdTitle.textContent = tracks[trackIdx].title;
   }
   function startPlay() {
     wantPlay = true;
+    var attempt = ++playAttempt;
+    var version = sourceVersion;
+    setPlayerState("loading", "正在载入 · " + tracks[trackIdx].title);
     var p = bgm.play();
     if (p && p.then) {
       p.then(function () {
-        mdPlay.classList.add("playing");
-        mdPlay.classList.remove("pulse");
-        mdPlay.setAttribute("aria-pressed", "true");
-        mdPlay.setAttribute("aria-label", "暂停音乐");
+        if (attempt !== playAttempt || version !== sourceVersion) return;
+        setPlayerState("playing");
         dock.classList.add("active");
-        mdTitle.textContent = tracks[trackIdx].title;
-      }).catch(function () {
-        mdPlay.classList.remove("playing");
-        mdPlay.classList.add("pulse");
-        mdPlay.setAttribute("aria-pressed", "false");
-        mdPlay.setAttribute("aria-label", "播放音乐");
-        mdTitle.textContent = "点一下页面任意处，音乐即响起";
+        scheduleNextPrefetch();
+      }).catch(function (error) {
+        if (attempt !== playAttempt || version !== sourceVersion || error.name === "AbortError") return;
+        if (error.name === "NotAllowedError") {
+          setPlayerState("blocked", "点一下页面任意处，音乐即响起");
+          return;
+        }
+        wantPlay = false;
+        setPlayerState("error", "音乐加载失败，请点击重试");
       });
     }
   }
   function stopPlay() {
     wantPlay = false;
+    playAttempt++;
     bgm.pause();
-    mdPlay.classList.remove("playing");
-    mdPlay.setAttribute("aria-pressed", "false");
-    mdPlay.setAttribute("aria-label", "播放音乐");
+    setPlayerState("paused");
   }
   mdPlay.addEventListener("click", function () {
-    if (bgm.paused || !wantPlay) startPlay(); else stopPlay();
+    if (playerState === "playing" || playerState === "loading" || playerState === "buffering") stopPlay();
+    else startPlay();
   });
   document.getElementById("mdPrev").addEventListener("click", function () {
+    var shouldResume = wantPlay;
     loadTrack(trackIdx - 1);
-    if (wantPlay) startPlay(); else mdTitle.textContent = tracks[trackIdx].title;
+    if (shouldResume) startPlay(); else setPlayerState("paused");
   });
   document.getElementById("mdNext").addEventListener("click", function () {
+    var shouldResume = wantPlay;
     loadTrack(trackIdx + 1);
-    if (wantPlay) startPlay(); else mdTitle.textContent = tracks[trackIdx].title;
+    if (shouldResume) startPlay(); else setPlayerState("paused");
+  });
+  [
+    { el: document.getElementById("mdPrev"), offset: -1 },
+    { el: document.getElementById("mdNext"), offset: 1 }
+  ].forEach(function (control) {
+    ["pointerenter", "focus", "pointerdown"].forEach(function (eventName) {
+      control.el.addEventListener(eventName, function () {
+        prefetchTrack(trackIdx + control.offset, true);
+      }, { passive: eventName !== "focus" });
+    });
+  });
+  ["loadstart", "waiting", "stalled"].forEach(function (eventName) {
+    bgm.addEventListener(eventName, function () {
+      if (!wantPlay) return;
+      var hasStarted = bgm.currentTime > 0;
+      setPlayerState(hasStarted ? "buffering" : "loading", (hasStarted ? "缓冲中 · " : "正在载入 · ") + tracks[trackIdx].title);
+      dock.classList.add("active");
+    });
+  });
+  bgm.addEventListener("playing", function () {
+    if (!wantPlay) return;
+    setPlayerState("playing");
+    dock.classList.add("active");
+    scheduleNextPrefetch();
+  });
+  bgm.addEventListener("progress", scheduleNextPrefetch);
+  bgm.addEventListener("canplaythrough", scheduleNextPrefetch);
+  bgm.addEventListener("error", function () {
+    if (!bgm.currentSrc) return;
+    wantPlay = false;
+    playAttempt++;
+    setPlayerState("error", "音乐加载失败，请点击重试");
+    dock.classList.add("active");
   });
   bgm.addEventListener("ended", function () {
+    var shouldResume = wantPlay;
     loadTrack(trackIdx + 1);
-    if (wantPlay) startPlay();
+    if (shouldResume) startPlay();
   });
-  loadTrack(0);
+  setPlayerState("paused");
   // 自动播放：尽力尝试；被浏览器拦截则等待首次交互（Chrome 不允许无点击出声）
   function autoStart() {
     if (bgm.paused && wantPlay !== false) startPlay();
