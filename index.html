@@ -6,11 +6,9 @@
 <title>eden-for-you ｜ 地球上最后的恋爱物语</title>
 <meta name="description" content="eden-for-you —— 献给 minori《eden* They Were Only Two, On The Planet》的同人赏析站：世界观、人物、物语、CG 绘卷、台词与音乐。Because you live, I live.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20fill=%22%2310141f%22/%3E%3Cpath%20d=%22M32%208l3.5%2018L54%2032l-18.5%206L32%2056l-3.5-18L10%2032l18.5-6z%22%20fill=%22%23c8b078%22/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- 大陆访问时 Google Fonts 可能被阻断：异步加载，绝不阻塞渲染，失败则回退系统宋体 -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/noto-serif-sc-critical.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -46,7 +44,7 @@
     <button type="button" class="md-btn" id="mdPrev" aria-label="上一首">‹</button>
     <button type="button" class="md-btn" id="mdNext" aria-label="下一首">›</button>
   </div>
-  <audio id="bgm" preload="auto" src="assets/audio/edenBGM026_A.mp3"></audio>
+  <audio id="bgm" preload="none" src="assets/audio/edenBGM026_A.mp3"></audio>
 </div>
 
 <!-- ========== 序幕 ========== -->
@@ -78,7 +76,7 @@
     </header>
     <div class="op-player reveal" id="opPlayer">
       <button type="button" class="op-poster" id="opPoster" aria-label="播放主題歌 OP">
-        <img src="assets/cg/op_cover.jpg" alt="OP「little explorer」封面" loading="lazy">
+        <img src="assets/cg-webp/op_cover.webp" alt="OP「little explorer」封面" loading="eager" fetchpriority="low" width="1146" height="717" decoding="async">
         <span class="op-play" aria-hidden="true">▶</span>
         <span class="op-poster-cap">little explorer · 4K 修复版 · 点击播放</span>
       </button>
@@ -114,7 +112,7 @@
 
     <div class="world-grid">
       <figure class="world-cg reveal">
-        <div class="wc-frame"><img src="assets/cg/ev007a01.jpg" alt="山丘上的诗音目送鸟儿远去" loading="lazy"></div>
+        <div class="wc-frame"><img src="assets/cg-webp/ev007a01.webp" alt="山丘上的诗音目送鸟儿远去" loading="lazy" width="1024" height="1696" decoding="async"></div>
         <figcaption>山丘上，她目送鸟儿飞向远方</figcaption>
       </figure>
       <div class="world-entries">
@@ -187,7 +185,7 @@
 
     <div class="char-grid">
       <article class="char-card char-featured reveal">
-        <figure><img src="assets/cg/ev007b02.jpg" alt="绿野中微笑的诗音" loading="lazy"></figure>
+        <figure><img src="assets/cg-webp/ev007b02.webp" alt="绿野中微笑的诗音" loading="lazy" width="1024" height="1696" decoding="async"></figure>
         <div class="char-body">
           <h3 class="char-name">诗音 <em>Sion</em><i class="char-jp">シオン</i></h3>
           <p class="char-cv">CV 志村由美</p>
@@ -197,7 +195,7 @@
       </article>
 
       <article class="char-card reveal" style="--sd:.1s">
-        <figure><img src="assets/cg/ev161a01_mugai_a.jpg" alt="榛名亮" loading="lazy"></figure>
+        <figure><img src="assets/cg-webp/ev161a01_mugai_a.webp" alt="榛名亮" loading="lazy" width="1024" height="640" decoding="async"></figure>
         <div class="char-body">
           <h3 class="char-name">榛名亮 <em>Ryou</em><i class="char-jp">榛名 亮</i></h3>
           <p class="char-cv">CV 间岛淳司</p>
@@ -207,7 +205,7 @@
       </article>
 
       <article class="char-card reveal" style="--sd:.2s">
-        <figure><img src="assets/cg/ev066a02_big.jpg" alt="突围而战的女仆艾莉卡" loading="lazy"></figure>
+        <figure><img src="assets/cg-webp/ev066a02_big.webp" alt="突围而战的女仆艾莉卡" loading="lazy" width="1280" height="960" decoding="async"></figure>
         <div class="char-body">
           <h3 class="char-name">艾莉卡 <em>Elica</em><i class="char-jp">エリカ</i></h3>
           <p class="char-cv">CV 中岛裕美子</p>
@@ -217,7 +215,7 @@
       </article>
 
       <article class="char-card reveal" style="--sd:.1s">
-        <figure><img src="assets/cg/ev015a01.jpg" alt="拉维尼亚" loading="lazy" style="object-position:50% 0%"></figure>
+        <figure><img src="assets/cg-webp/ev015a01.webp" alt="拉维尼亚" loading="lazy" style="object-position:50% 0%" width="1024" height="2048" decoding="async"></figure>
         <div class="char-body">
           <h3 class="char-name">浅井·F·拉维尼娅 <em>Lavinia</em><i class="char-jp">ラヴィニア</i></h3>
           <p class="char-cv">CV 中村绘里子</p>
@@ -227,7 +225,7 @@
       </article>
 
       <article class="char-card reveal" style="--sd:.2s">
-        <figure><img src="assets/cg/ev030c01_mugai_a.jpg" alt="稻叶直人" loading="lazy"></figure>
+        <figure><img src="assets/cg-webp/ev030c01_mugai_a.webp" alt="稻叶直人" loading="lazy" width="1024" height="640" decoding="async"></figure>
         <div class="char-body">
           <h3 class="char-name">稻叶直人 <em>Inaba</em><i class="char-jp">稲葉 直人</i></h3>
           <p class="char-cv">CV 远近孝一</p>
@@ -237,7 +235,7 @@
       </article>
 
       <article class="char-card reveal" style="--sd:.3s">
-        <figure><img src="assets/cg/ev137a01.jpg" alt="塔野真夜" loading="lazy"></figure>
+        <figure><img src="assets/cg-webp/ev137a01.webp" alt="塔野真夜" loading="lazy" width="1024" height="640" decoding="async"></figure>
         <div class="char-body">
           <h3 class="char-name">塔野真夜 <em>Maya</em><i class="char-jp">塔野 真夜</i></h3>
           <p class="char-cv">CV 后藤麻衣</p>
@@ -247,7 +245,7 @@
       </article>
 
       <article class="char-card char-card-two reveal">
-        <figure class="char-fig-side"><img src="assets/cg/portrait_natsume.jpg" alt="夏目" loading="lazy"></figure>
+        <figure class="char-fig-side"><img src="assets/cg-webp/portrait_natsume.webp" alt="夏目" loading="lazy" width="373" height="758" decoding="async"></figure>
         <div class="char-body">
           <h3 class="char-name">夏目 <em>Natsume</em><i class="char-jp">ナツメ</i></h3>
           <p class="char-cv">CV 冈田纯子</p>
@@ -283,21 +281,21 @@
         <p class="chapter-no"><i>壱</i>第一章</p>
         <h3>孤岛 · 相遇</h3>
         <p>少女在纯白的房间里醒来，士兵在门外站岗。任务是保护她、监视她。诗音对窗外的一切好奇——海的气味、雨的声音、鸟的去向；亮则把「外面」折叠成只言片语，讲给她听。第一次外出，她忘我地追逐一只飞鸟，跑上山丘，久久望着它消失的天际。看守与被看守的位置悄悄松动，两颗孤独的心，开始靠近。</p>
-        <figure class="chapter-fig"><img src="assets/cg/ev047a01_big.jpg" alt="设施中交谈的士兵与诗音" loading="lazy"><figcaption>士兵与圣女——最初的距离</figcaption></figure>
+        <figure class="chapter-fig"><img src="assets/cg-webp/ev047a01_big.webp" alt="设施中交谈的士兵与诗音" loading="lazy" width="1280" height="960" decoding="async"><figcaption>士兵与圣女——最初的距离</figcaption></figure>
       </article>
 
       <article class="chapter reveal">
         <p class="chapter-no"><i>弐</i>第二章</p>
         <h3>逃离 · 背叛之温柔</h3>
         <p>艾莉卡的生命之火将熄，她最后的愿望，是把诗音从「保管」中解放出来。「若是有亮帮忙的话，成功的概率就大多了。」在她的谋划下，亮带着诗音冲出研究所——女仆的裙裾扫倒围堵的枪口，拉维在枪口前移开了视线，稻叶少佐在报告里写下了谎言。制度出现裂缝，而裂缝里漏下的，是人性的光。</p>
-        <figure class="chapter-fig"><img src="assets/cg/ev066a02_big.jpg" alt="艾莉卡的突围之战" loading="lazy"><figcaption>姐妹的托付，以生命为火把</figcaption></figure>
+        <figure class="chapter-fig"><img src="assets/cg-webp/ev066a02_big.webp" alt="艾莉卡的突围之战" loading="lazy" width="1280" height="960" decoding="async"><figcaption>姐妹的托付，以生命为火把</figcaption></figure>
       </article>
 
       <article class="chapter reveal">
         <p class="chapter-no"><i>参</i>第三章</p>
         <h3>桃源 · 日常</h3>
         <p>夏目的旧居，成了两人隐居的家。田地里种下作物，湖边垂钓，傍晚并肩看星。诗音第一次触到「生活」——不是天才的使命，而是作为一个人，活在世上。「若是能在这里跟亮一起迎来最后一刻……对我而言便已足够。」她说这话时，将脑袋轻轻靠在了亮的肩上。</p>
-        <figure class="chapter-fig"><img src="assets/cg/ev148a01.jpg" alt="家常——隐居的日常" loading="lazy"><figcaption>两人份的日常，千金不换</figcaption></figure>
+        <figure class="chapter-fig"><img src="assets/cg-webp/ev148a01.webp" alt="家常——隐居的日常" loading="lazy" width="1024" height="640" decoding="async"><figcaption>两人份的日常，千金不换</figcaption></figure>
       </article>
 
       <article class="chapter reveal">
@@ -314,7 +312,7 @@
           <p class="vn-line vn-line-em"><span class="vn-name vn-ryo">亮</span><span class="vn-text">你……还在这里。</span></p>
         </div>
         <p>我伸出手，将她娇小的身体拥入怀中。柔软、温暖的感触径直传来。那股温暖让我感到——她的确活着。</p>
-        <figure class="chapter-fig"><img src="assets/cg/ev131a01.jpg" alt="亮的拥抱" loading="lazy"><figcaption>「就像你不愿让我死掉一样，我也不想失去和你在一起的时间。」</figcaption></figure>
+        <figure class="chapter-fig"><img src="assets/cg-webp/ev131a01.webp" alt="亮的拥抱" loading="lazy" width="1024" height="640" decoding="async"><figcaption>「就像你不愿让我死掉一样，我也不想失去和你在一起的时间。」</figcaption></figure>
       </article>
 
       <article class="chapter reveal">
@@ -329,7 +327,7 @@
           <p class="vn-line vn-line-em"><span class="vn-name">诗音</span><span class="vn-text">如果，我还能……醒来……就……一起……</span></p>
         </div>
         <p>她的话语戛然而止。她将脑袋靠在他的肩头，合上了双眼，嘴角带着淡淡的笑容。乐园里独属于两人的时光——将永无止境地延续下去。而他能说的，唯有最后一句话——</p>
-        <figure class="chapter-fig"><img src="assets/cg/ev224a01.jpg" alt="永眠" loading="lazy"><figcaption>「晚安，诗音――」</figcaption></figure>
+        <figure class="chapter-fig"><img src="assets/cg-webp/ev224a01.webp" alt="永眠" loading="lazy" width="1024" height="640" decoding="async"><figcaption>「晚安，诗音――」</figcaption></figure>
         <div class="chapter-epilogue">
           <p class="chapter-no"><i>後</i>后日谈</p>
           <p>他在她最喜欢的山丘上，用双手挖好墓穴，将艾莉卡的遗发放进她交叠的双手——「如此一来，诗音跟艾莉卡这对姐妹就能永远陪着彼此了。」诗音的坟墓不需要墓碑，她所铸就的伟业，将被镌刻在人类的历史当中。「诗音，我会试着继续活下去。」「明天，我会带花过来。」如今已不必配合诗音的步调，但他仍然走得很慢。</p>
@@ -351,35 +349,35 @@
       <p class="section-lead">ちこたむ笔下的末日与乐园，全部取自游戏原版 CG。点击图片放大欣赏。</p>
     </header>
     <div class="gallery" id="galleryGrid">
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev007b02.jpg" data-cap="绿野 · 一望无际的绿景中莞尔一笑" alt="绿野中微笑的诗音" loading="lazy"><span class="g-caption">绿野</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev006.jpg" data-cap="逐鸟 · 第一次外出，她追逐着鸟儿" alt="诗音追逐飞鸟" loading="lazy"><span class="g-caption">逐鸟</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev007a01.jpg" data-cap="山丘 · 她目送鸟儿飞向天空的尽头" alt="山丘上的诗音" loading="lazy"><span class="g-caption">山丘</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev047a01_big.jpg" data-cap="对坐 · 士兵与圣女的距离" alt="士兵与诗音对坐交谈" loading="lazy"><span class="g-caption">对坐</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev071a01.jpg" data-cap="托付 · 艾莉卡最后的愿望" alt="艾莉卡的托付" loading="lazy"><span class="g-caption">托付</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev066a02_big.jpg" data-cap="突围 · 女仆的裙裾扫过枪口" alt="艾莉卡突围之战" loading="lazy"><span class="g-caption">突围</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev215a01.jpg" data-cap="夜战 · 为了妹妹的未来" alt="艾莉卡对战士兵" loading="lazy"><span class="g-caption">夜战</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev003_big.jpg" data-cap="启程 · 通往无悔未来的选择" alt="启程" loading="lazy"><span class="g-caption">启程</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev223a01.jpg" data-cap="风立 · 微风拂过发梢" alt="风立" loading="lazy"><span class="g-caption">风立</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev107a03.jpg" data-cap="相谈 · 与真夜的夜话" alt="诗音与真夜交谈" loading="lazy"><span class="g-caption">相谈</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev134a51.jpg" data-cap="筹谋 · 静夜里的思量" alt="筹谋" loading="lazy"><span class="g-caption">筹谋</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev125a01.jpg" data-cap="相依 · 送别真夜之后" alt="相依的两人" loading="lazy"><span class="g-caption">相依</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev065a01.jpg" data-cap="少佐 · 军人自有军人的方式" alt="办公室中的稻叶" loading="lazy"><span class="g-caption">少佐</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev133a01.jpg" data-cap="倾听 · 诗音与来访的友人" alt="交谈" loading="lazy"><span class="g-caption">倾听</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev241a01.jpg" data-cap="往昔 · 山间小屋的旧日" alt="往昔" loading="lazy"><span class="g-caption">往昔</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev242a01.jpg" data-cap="追忆 · 夏目与年幼的亮" alt="夏目与年幼的亮" loading="lazy"><span class="g-caption">追忆</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev099a01.jpg" data-cap="到访 · 乘直升机而来的记者" alt="真夜到访" loading="lazy"><span class="g-caption">到访</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev201a01.jpg" data-cap="晚餐 · 两人份的餐桌" alt="餐桌" loading="lazy"><span class="g-caption">晚餐</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev131a01.jpg" data-cap="拥抱 · 「你……还在这里。」" alt="亮的拥抱" loading="lazy"><span class="g-caption">拥抱</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev131a02.jpg" data-cap="相拥 · 再也不会让你感到悲伤了" alt="相拥" loading="lazy"><span class="g-caption">相拥</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev238a01_big.jpg" data-cap="清晨 · 最后的醒来" alt="最后的清晨" loading="lazy"><span class="g-caption">清晨</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev203b01.jpg" data-cap="誓约 · 星空下的相拥" alt="星夜相拥" loading="lazy"><span class="g-caption">誓约</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev248b01.jpg" data-cap="漫步 · 最后的散步" alt="最后的散步" loading="lazy"><span class="g-caption">漫步</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev224a01.jpg" data-cap="永眠 · 「晚安，诗音――」" alt="永眠" loading="lazy"><span class="g-caption">永眠</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev002a01.jpg" data-cap="约定 · 「因为……跟你约好了……」" alt="约定" loading="lazy"><span class="g-caption">约定</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev162a01.jpg" data-cap="明日之花 · 「明天，我会带花过来。」" alt="明日之花" loading="lazy"><span class="g-caption">明日之花</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev015a01.jpg" data-cap="后辈 · 浅井·F·拉维尼娅" alt="拉维尼娅" loading="lazy"><span class="g-caption">后辈</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev016a01_mugai.jpg" data-cap="调令 · 前往第 703 研究所" alt="调令" loading="lazy"><span class="g-caption">调令</span></button>
-      <button type="button" class="g-item reveal"><img src="assets/cg/ev035a01.jpg" data-cap="守护 · 绝不能将她卷进来" alt="守护" loading="lazy"><span class="g-caption">守护</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev007b02.webp" data-cap="绿野 · 一望无际的绿景中莞尔一笑" alt="绿野中微笑的诗音" loading="lazy" width="1024" height="1696" decoding="async"><span class="g-caption">绿野</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev006.webp" data-cap="逐鸟 · 第一次外出，她追逐着鸟儿" alt="诗音追逐飞鸟" loading="lazy" width="1024" height="1920" decoding="async"><span class="g-caption">逐鸟</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev007a01.webp" data-cap="山丘 · 她目送鸟儿飞向天空的尽头" alt="山丘上的诗音" loading="lazy" width="1024" height="1696" decoding="async"><span class="g-caption">山丘</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev047a01_big.webp" data-cap="对坐 · 士兵与圣女的距离" alt="士兵与诗音对坐交谈" loading="lazy" width="1280" height="960" decoding="async"><span class="g-caption">对坐</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev071a01.webp" data-cap="托付 · 艾莉卡最后的愿望" alt="艾莉卡的托付" loading="lazy" width="1280" height="547" decoding="async"><span class="g-caption">托付</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev066a02_big.webp" data-cap="突围 · 女仆的裙裾扫过枪口" alt="艾莉卡突围之战" loading="lazy" width="1280" height="960" decoding="async"><span class="g-caption">突围</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev215a01.webp" data-cap="夜战 · 为了妹妹的未来" alt="艾莉卡对战士兵" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">夜战</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev003_big.webp" data-cap="启程 · 通往无悔未来的选择" alt="启程" loading="lazy" width="1280" height="960" decoding="async"><span class="g-caption">启程</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev223a01.webp" data-cap="风立 · 微风拂过发梢" alt="风立" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">风立</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev107a03.webp" data-cap="相谈 · 与真夜的夜话" alt="诗音与真夜交谈" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">相谈</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev134a51.webp" data-cap="筹谋 · 静夜里的思量" alt="筹谋" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">筹谋</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev125a01.webp" data-cap="相依 · 送别真夜之后" alt="相依的两人" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">相依</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev065a01.webp" data-cap="少佐 · 军人自有军人的方式" alt="办公室中的稻叶" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">少佐</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev133a01.webp" data-cap="倾听 · 诗音与来访的友人" alt="交谈" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">倾听</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev241a01.webp" data-cap="往昔 · 山间小屋的旧日" alt="往昔" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">往昔</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev242a01.webp" data-cap="追忆 · 夏目与年幼的亮" alt="夏目与年幼的亮" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">追忆</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev099a01.webp" data-cap="到访 · 乘直升机而来的记者" alt="真夜到访" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">到访</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev201a01.webp" data-cap="晚餐 · 两人份的餐桌" alt="餐桌" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">晚餐</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev131a01.webp" data-cap="拥抱 · 「你……还在这里。」" alt="亮的拥抱" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">拥抱</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev131a02.webp" data-cap="相拥 · 再也不会让你感到悲伤了" alt="相拥" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">相拥</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev238a01_big.webp" data-cap="清晨 · 最后的醒来" alt="最后的清晨" loading="lazy" width="1280" height="960" decoding="async"><span class="g-caption">清晨</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev203b01.webp" data-cap="誓约 · 星空下的相拥" alt="星夜相拥" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">誓约</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev248b01.webp" data-cap="漫步 · 最后的散步" alt="最后的散步" loading="lazy" width="1024" height="1514" decoding="async"><span class="g-caption">漫步</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev224a01.webp" data-cap="永眠 · 「晚安，诗音――」" alt="永眠" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">永眠</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev002a01.webp" data-cap="约定 · 「因为……跟你约好了……」" alt="约定" loading="lazy" width="1024" height="640" decoding="async"><span class="g-caption">约定</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev162a01.webp" data-cap="明日之花 · 「明天，我会带花过来。」" alt="明日之花" loading="lazy" width="1024" height="2007" decoding="async"><span class="g-caption">明日之花</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev015a01.webp" data-cap="后辈 · 浅井·F·拉维尼娅" alt="拉维尼娅" loading="lazy" width="1024" height="2048" decoding="async"><span class="g-caption">后辈</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev016a01_mugai.webp" data-cap="调令 · 前往第 703 研究所" alt="调令" loading="lazy" width="1280" height="800" decoding="async"><span class="g-caption">调令</span></button>
+      <button type="button" class="g-item reveal"><img src="assets/cg-webp/ev035a01.webp" data-cap="守护 · 绝不能将她卷进来" alt="守护" loading="lazy" width="1024" height="1536" decoding="async"><span class="g-caption">守护</span></button>
     </div>
   </div>
 </section>
