@@ -143,11 +143,13 @@ a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible {
   opacity: 0; animation: heroIn 1.4s var(--ease) both;
 }
 .hero-title {
+  position: relative; width: max-content; margin-inline: auto;
   font-family: var(--latin); font-weight: 400; font-style: italic;
   font-size: clamp(88px, 16vw, 190px); line-height: 1;
   color: #f4f1e8; letter-spacing: .01em; text-shadow: 0 0 60px rgba(201,178,124,.25);
 }
 .hero-title .star {
+  position: absolute; top: 0; left: 100%;
   color: var(--gold-soft); font-style: normal;
   display: inline-block; transform: translateY(-.35em);
   opacity: 0; animation: starDrop 1.4s .75s var(--ease) forwards, starPulse 4.5s 2.2s ease-in-out infinite;
@@ -170,11 +172,11 @@ a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible {
 .hero-sub-en {
   font-family: var(--latin); font-style: italic;
   font-size: clamp(17px, 2.4vw, 24px); color: #b9c1d4;
-  margin-top: 30px; letter-spacing: .12em; text-indent: .12em;
+  margin-top: 30px; letter-spacing: .12em; text-indent: .06em;
 }
 .hero-sub-cn {
   font-size: clamp(15px, 2vw, 19px); color: #d8dce6;
-  margin-top: 14px; letter-spacing: .5em; text-indent: .5em;
+  margin-top: 14px; letter-spacing: .5em; text-indent: .25em;
 }
 .hero-tagline {
   margin-top: 52px; font-family: var(--latin); font-style: italic;
@@ -190,7 +192,11 @@ a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible {
   position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 14px;
   color: #8d97b0; font-size: 11px; letter-spacing: .4em; text-indent: .4em;
-  opacity: 0; animation: heroIn 1.5s 1.9s var(--ease) forwards;
+  opacity: 0; animation: scrollCueIn 1.5s 1.9s var(--ease) forwards;
+}
+@keyframes scrollCueIn {
+  from { opacity: 0; transform: translate(-50%, 26px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
 }
 .scroll-cue i {
   width: 1px; height: 56px; background: linear-gradient(var(--gold-soft), transparent);
